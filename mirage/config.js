@@ -11,4 +11,10 @@ export default function() {
   });
 
   this.get('/teams/:id');
+
+  this.get('/empty/projects', function() {
+    return {
+      data: []
+    };
+  });
 }

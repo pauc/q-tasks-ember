@@ -14,7 +14,7 @@ export default JSONAPIAdapter.extend(DataAdapterMixin, {
 
   coalesceFindRequests: true,
 
-  namespace: Ember.computed(function() {
+  namespace: Ember.computed('currentTeam.id', function() {
     return `${this.get('currentTeam.id')}`;
   }),
 

@@ -1,2 +1,47 @@
 front_page:
   welcome_message: "Benvingut a Q-Tasks"
+
+authentication:
+  error: "Ha fallat l'autenticació. Assegurat que el correu i la contrasenya són correctes."
+
+models:
+  attributes:
+    defaults: &attribute_defaults
+      description: "descripció"
+      name: "nom"
+    project:
+      <<: *attribute_defaults
+
+errors:
+  description: ""
+  inclusion: "{description} no està inclòs a la llista"
+  exclusion: "{description} està reservat"
+  invalid: "{description} és invàlid"
+  confirmation: "{description} no coincideix amb {on}"
+  accepted: "{description} ha de ser acceptat"
+  empty: "{description} no pot estar buit"
+  blank: "{description} no pot estar en blanc"
+  present: "{description} ha d'estar en blanc"
+  collection: "{description} ha de ser una col·lecció"
+  singular: "{description} no pot ser una col·lecció"
+  tooLong: "{description} és massa llarg (màxim {max} caràcters)"
+  tooShort: "{description} és massa curt (minim {min} caràcters)"
+  before: "{description} ha de ser abans de {before}"
+  after: "{description} ha de ser després de {after}"
+  wrongDateFormat: "{description} ha de tenir format {format}"
+  wrongLength: "{description} no té la longitud correcta ({is} caràcters exactament)"
+  notANumber: "{description} ha de ser un número"
+  notAnInteger: "{description} ha de ser un enter"
+  greaterThan: "{description} ha de ser més gran que {gt}"
+  greaterThanOrEqualTo: "{description} ha de ser més gran o igual que {gte}"
+  equalTo: "{description} ha de ser igual que {is}"
+  lessThan: "{description} ha de ser menor que {lt}"
+  lessThanOrEqualTo: "{description} ha de ser menor o igual que {lte}"
+  otherThan: "{description} ha de ser diferent de {value}"
+  odd: "{description} ha de ser senar"
+  even: "{description} ha de ser parell"
+  positive: "{description} ha de ser positiu"
+  date: "{description} ha de ser una data vàlida"
+  email: "{description} ha de ser una adreça de correu vàlida"
+  phone: "{description} ha de ser un número de telèfon vàlid"
+  url: "{description} ha de ser una url vàlida"

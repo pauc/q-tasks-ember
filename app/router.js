@@ -8,6 +8,11 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
 
+  this.route('projects', function() {
+    this.route('first');
+    this.route('project', { path: '/:id', resetNamespace: true });
+  });
+
   this.route('not-found');
 });
 

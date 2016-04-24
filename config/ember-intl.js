@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   return {
-    locales: ['ca', 'es'],
+    locales: ['ca', 'es', 'en'],
     baseLocale: ['ca'],
     disablePolyfill: true,
     publicOnly: false,

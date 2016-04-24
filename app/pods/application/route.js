@@ -2,9 +2,12 @@ import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
+  intl:        Ember.inject.service(),
   currentTeam: Ember.inject.service(),
 
   beforeModel() {
+    this.get('intl').setLocale('ca');
+
     if (!this.get('subdomain')) {
       return;
     }
@@ -13,7 +16,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
     return this.store.findRecord('team', subdomain).then( (team) => {
       this.set('currentTeam.content', team);
-    }, function() {});
+    }, () => {
+      this.transitionTo('not-found');
+    });
   },
 
   model() {

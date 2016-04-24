@@ -1,0 +1,22 @@
+<label for="{{inputId}}" class="input-group-label">{{label}}</label>
+
+{{#if hasBlock}}
+  {{yield}}
+{{else}}
+  {{#if textarea}}
+    {{textarea id=inputId value=value class="input-group-field"}}
+  {{else}}
+    {{input
+      id=inputId
+      type=type
+      value=value
+      class="input-group-field"
+    }}
+  {{/if}}
+{{/if}}
+
+{{#if showErrors}}
+  {{#each (get data.displayErrors field) as |error|}}
+    <span class="input-group-error">{{error}}</span>
+  {{/each}}
+{{/if}}

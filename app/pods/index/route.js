@@ -8,7 +8,11 @@ export default Ember.Route.extend({
     if (this.get('currentTeam.content') &&
         !this.get('session.isAuthenticated')) {
       this.transitionTo('login');
+
+      return;
     }
+
+    this.transitionTo('projects');
   },
 
   renderTemplate() {
