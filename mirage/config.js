@@ -1,24 +1,14 @@
 export default function() {
+  this.post('/oauth/token', function() {
+    return {
+      access_token: "a08bd89e8fde90f06eac199165ff414bc10e276b5b73a3effa27bad786c36a33",
+      token_type: "bearer",
+      expires_in: 2943,
+      refresh_token: "9aba732caa2c269b6e502341fd7cd8118b2353b84eaef5800dfe0e3faa45eeb1",
+      created_at: 1450714792,
+      resource_owner_id: 1
+    };
+  });
 
-  // These comments are here to help you get started. Feel free to delete them.
-
-  /*
-    Config (with defaults).
-
-    Note: these only affect routes defined *after* them!
-  */
-
-  // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
-  // this.namespace = '';    // make this `api`, for example, if your API is namespaced
-  // this.timing = 400;      // delay for each request, automatically set to 0 during testing
-
-  /*
-    Shorthand cheatsheet:
-
-    this.get('/posts');
-    this.post('/posts');
-    this.get('/posts/:id');
-    this.put('/posts/:id'); // or this.patch
-    this.del('/posts/:id');
-  */
+  this.get('/teams/:id');
 }
