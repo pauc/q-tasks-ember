@@ -2,7 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'q-tasks-ember',
+    modulePrefix: 'q-tasks',
+    podModulePrefix: 'q-tasks/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
