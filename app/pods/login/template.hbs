@@ -1,7 +1,6 @@
 <div class="login-wrapper">
   {{#unless session.isAuthenticated}}
     <form onsubmit={{route-action 'authenticate' identification password}}>
-
       <div class="input-group-col">
         <div class="input-group">
           {{input id='identification' placeholder='Enter Login' value=identification class="input-group-field"}}
@@ -21,8 +20,4 @@
       <p>{{errorMessage}}</p>
     {{/if}}
   {{/unless}}
-</div>
-
-<div class="template-debug">
-  Find me in "app/pods/login/template.hbs"
 </div>
