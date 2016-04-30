@@ -1,11 +1,21 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var env = EmberApp.env();
+var s3Prefix;
+
+if (env === "production") {
+  s3Prefix = "https://s3-eu-west-1.amazonaws.com/q-tasks-prod/"
+}
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     babel: {
       includePolyfill: true
+    },
+
+    fingerprint: {
+      prepend: s3Prefix
     }
   });
 
