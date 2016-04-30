@@ -1,14 +1,24 @@
-<h1>Q-Tasks</h1>
+<div class="login-wrapper">
+  {{#unless session.isAuthenticated}}
+    <form onsubmit={{route-action 'authenticate' identification password}}>
+      
+      <div class="input-group-col">
+        <div class="input-group">
+          {{input id='identification' placeholder='Enter Login' value=identification class="input-group-field"}}
+          <label for="identification" class="input-group-label">Login</label>
+        </div>
+        
+        <div class="input-group">
+          {{input id='password' placeholder='Enter Password' type='password' value=password class="input-group-field"}}
+          <label for="password" class="input-group-label">Password</label>  
+        </div>
+      </div>
+      <br>
+      <button type="submit" class="button">Let's go do some tasks</button>
 
-{{#unless session.isAuthenticated}}
-  <form onsubmit={{route-action 'authenticate' identification password}}>
-    <label for="identification">Login</label>
-    {{input id='identification' placeholder='Enter Login' value=identification}}
-    <label for="password">Password</label>
-    {{input id='password' placeholder='Enter Password' type='password' value=password}}
-    <button type="submit">Login</button>
-  </form>
-  {{#if errorMessage}}
-    <p>{{errorMessage}}</p>
-  {{/if}}
-{{/unless}}
+    </form>
+    {{#if errorMessage}}
+      <p>{{errorMessage}}</p>
+    {{/if}}
+  {{/unless}}
+</div>

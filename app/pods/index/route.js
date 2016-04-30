@@ -5,6 +5,10 @@ export default Ember.Route.extend({
   currentTeam: Ember.inject.service(),
 
   beforeModel() {
+    if (!this.get('currentTeam.content')) {
+      return;
+    }
+
     if (this.get('currentTeam.content') &&
         !this.get('session.isAuthenticated')) {
       this.transitionTo('login');

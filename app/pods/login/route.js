@@ -6,6 +6,14 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
   session:     Ember.inject.service(),
   currentTeam: Ember.inject.service(),
 
+  beforeModel(transition) {
+    if (!this.get('currentTeam.content')) {
+      this.transitionTo('index');
+    }
+
+    this._super(transition);
+  },
+
   actions: {
     authenticate(identification, password, event) {
       event.preventDefault();
