@@ -16,7 +16,35 @@ module.exports = function(defaults) {
 
     fingerprint: {
       prepend: s3Prefix
-    }
+    },
+
+    styleProcessorOptions: {
+      processors: [
+        {
+          type: 'postcss',
+          plugins: [
+            { module: require('postcss-import'),
+              options: {
+                path: "app/styles"
+              }
+            },
+            { module: require('postcss-mixins') },
+            { module: require('postcss-nested-vars') },
+            { module: require('postcss-nested') },
+            { module: require('postcss-extend') },
+            { module: require('postcss-cssnext'),
+              options: {
+                browsers: ['last 2 versions']
+              }
+            },
+            { module: require('postcss-fontpath') },
+            { module: require('postcss-color-function') },
+            { module: require('postcss-color-gray') }
+          ]
+        }
+      ],
+      extension:  'css'
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
