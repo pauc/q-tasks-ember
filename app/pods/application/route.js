@@ -30,7 +30,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   },
 
   afterModel() {
-    debugger;
     if (this.get('currentTeam.blank') || !this.get('session.isAuthenticated')) {
       return;
     }

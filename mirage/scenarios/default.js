@@ -11,7 +11,7 @@ export default function(server) {
     subdomain: "empty"
   });
 
-  server.create('project', {
+  const quipuProject1 = server.create('project', {
     name:   "New frontend",
     description: `Building a completely new frontend for Quipuapp. It will be
       a single page javascript application that comunicates with the backend
@@ -26,12 +26,14 @@ export default function(server) {
     teamId: quipu.id
   });
 
-  const quipuUser1 = server.create('user', {
+  server.create('user', {
     email:  'quipu-user-1@example.com',
-    temaId: quipu.id
+    teamId: quipu.id,
+    currentProjectId: null
   });
 
-  const quipuUser2 = server.create('user', {
+  server.create('user', {
     email: 'quipu-user-2@example.com',
+    teamId: 'quipu'
   });
 }
