@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import JSONAPISerializer from 'ember-data/serializers/json-api';
 
 export default JSONAPISerializer.extend({
@@ -9,5 +10,5 @@ export default JSONAPISerializer.extend({
 
   keyForRelationship(key) {
     return Ember.String.underscore(key);
-  }  
+  }
 });
