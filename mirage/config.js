@@ -45,7 +45,6 @@ export default function() {
   });
 
   this.get('/projects/:id');
-
   this.get('/users/:id');
   this.get('/goals');
   this.get('/goals/:id');
