@@ -22,5 +22,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model() {
     return this.get('projectsPromise');
+  },
+
+  actions: {
+    selectProject(project) {
+      this.transitionTo('project', project.get('id'));
+    }
   }
 });

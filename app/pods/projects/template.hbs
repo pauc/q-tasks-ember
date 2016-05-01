@@ -4,7 +4,13 @@
   </div>
 
   <div class="template-debug">
-    Project selector
+    {{#power-select
+      options=model
+      onchange=(route-action 'selectProject')
+      searchEnabled=false as |project|
+    }}
+      {{project.name}}
+    {{/power-select}}
   </div>
 
   {{outlet 'goals-list'}}
