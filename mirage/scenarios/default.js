@@ -36,4 +36,22 @@ export default function(server) {
     email: 'quipu-user-2@example.com',
     teamId: 'quipu'
   });
+
+  server.create('goal', {
+    name: "New income invoice form",
+    description: "",
+    projectId: quipuProject1.id
+  });
+
+  server.create('goal', {
+    name: "Refactor taxes calculations",
+    description: "",
+    projectId: quipuProject1.id
+  });
+
+  server.create('goal', {
+    name: "Optimize API performance",
+    description: "",
+    projectId: quipuProject1.id
+  });
 }

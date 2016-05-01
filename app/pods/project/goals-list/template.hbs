@@ -1,3 +1,16 @@
+<h2>Project goals (task groups):</h2>
+<ul>
+  {{#each model.goals as |goal|}}
+    <div>
+      <li>
+        {{#link-to 'goal' model.id goal.id}}
+          {{goal.name}}
+        {{/link-to}}
+      </li>
+    </div>
+  {{/each}}
+</ul>
+
 <div class="template-debug">
   Find me in "app/pods/project/goals-list/template.hbs"
 </div>

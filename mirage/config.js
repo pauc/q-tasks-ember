@@ -30,5 +30,7 @@ export default function() {
 
   this.namespace = 'quipu',
 
-  this.get('projects/:id');
+  this.get('/projects/:id');
+  this.get('/goals');
+  this.get('/goals/:id');
 }
