@@ -27,4 +27,8 @@ export default function() {
 
     return quipu.projects;
   });
+
+  this.namespace = 'quipu',
+
+  this.get('projects/:id');
 }
