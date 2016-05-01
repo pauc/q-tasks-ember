@@ -10,11 +10,21 @@ export default function() {
     };
   });
 
+  this.get('/quipu/users/:id', function({ user }, request) {
+    return user.find(request.params.id);
+  });
+
   this.get('/teams/:id');
 
   this.get('/empty/projects', function() {
     return {
       data: []
     };
+  });
+
+  this.get('/quipu/projects', function({ team }) {
+    const quipu = team.find("quipu");
+
+    return quipu.projects;
   });
 }
