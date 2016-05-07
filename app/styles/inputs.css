@@ -1,0 +1,43 @@
+::-webkit-input-placeholder { color: #aaa }
+:-moz-placeholder { color: #aaa }
+::-moz-placeholder { color: #aaa }
+:-ms-input-placeholder {  color: #aaa }
+
+input {
+  min-height: 38px;
+  width: 100%;
+  padding: 0 12px;
+  border-radius: 2px;
+  border: 2px solid rgba(0,0,0,.14);
+  font-size: 20px;
+  transition: .6s;
+}
+input:hover {
+  transition: .2s;
+}
+input:focus {
+  outline: 0;
+  border-left-color: #0091EB;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-label {
+  border: 2px solid #ddd;
+  height: 26px;
+  width: 26px;
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.checkbox-input:checked + .checkbox-label {
+  background-color: $blue;
+  background-image: url("/assets/images/icons/check.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-color: transparent;
+}

@@ -1,0 +1,17 @@
+.small-tasks {
+  padding: 30px;
+}
+
+.small-task {
+  background-color: white;
+  padding: 12px 5px 12px 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 2px;
+  margin-bottom: 2px;
+}
+
+.small-task-title {
+  color: inherit;
+  margin-left: 20px;
+}

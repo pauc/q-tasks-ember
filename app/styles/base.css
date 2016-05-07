@@ -1,0 +1,6 @@
+$blue: #0091EB;
+
+a {
+  color: $blue;
+  text-decoration: none;
+}
