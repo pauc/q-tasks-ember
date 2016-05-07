@@ -22,10 +22,8 @@ export default function() {
     };
   });
 
-  this.get('/quipu/projects', function({ team }) {
-    const quipu = team.find("quipu");
-
-    return quipu.projects;
+  this.get('/quipu/projects', function({ project }) {
+    return project.all();
   });
 
   this.namespace = 'quipu',
@@ -33,4 +31,6 @@ export default function() {
   this.get('/projects/:id');
   this.get('/goals');
   this.get('/goals/:id');
+  this.get('/tasks');
+  this.get('/tasks/:id');
 }

@@ -1,27 +1,24 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-const { isEmpty } = Ember;
+const { isEmpty, inject } = Ember;
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-  beforeModel() {
-    this._super(...arguments);
-
-    const projectsPromise = this.store.findAll('project');
-
-    this.set('projectsPromise', projectsPromise);
-
-    projectsPromise.then( (projects) => {
-      if (isEmpty(projects)) {
-        this.transitionTo('projects.first');
-      }
-    });
-
-    return projectsPromise;
-  },
+  currentUser: inject.service(),
 
   model() {
-    return this.get('projectsPromise');
+    return this.store.findAll('project');
+  },
+
+  redirect(model) {
+    if (isEmpty(model)) {
+      this.transitionTo('first-project');
+    } else {
+      const currentProjectId = this.get('currentUser.currentProjectId') ||
+        model.get('firstObject.id');
+
+      this.transitionTo('project', currentProjectId);
+    }
   },
 
   actions: {
