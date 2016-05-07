@@ -1,24 +1,16 @@
 <div class="small-tasks">
-  
   {{#each model.goals as |goal|}}
-
     <div class="small-task">
-      
+
       <div class="checkbox">
         <input id="{{goal.id}}" type="checkbox" class="checkbox-input">
         <label for="{{goal.id}}" class="checkbox-label"></label>
       </div>
-      
-      {{#link-to 'goal' model.id goal.id class="small-task-title"}}        
+
+      {{#link-to 'goal' model.id goal.id class="small-task-title"}}
         {{goal.name}}
       {{/link-to}}
 
     </div>
-
   {{/each}}
-
 </div>
-
-{{!-- <div class="template-debug">
-  Find me in "app/pods/project/goals-list/template.hbs"
-</div> --}}

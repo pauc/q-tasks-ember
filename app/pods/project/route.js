@@ -18,7 +18,7 @@ export default Ember.Route.extend({
 
       this.transitionTo('goal', currentGoalId);
     } else {
-      this.transitionTo('first-goal');
+      this.transitionTo('project.first-goal');
     }
   },
 

@@ -6,6 +6,7 @@
   <div class="template-debug">
     {{#power-select
       options=model
+      selected=currentProject
       onchange=(route-action 'selectProject')
       searchEnabled=false as |project|
     }}
