@@ -16,19 +16,37 @@ export default function() {
 
   this.get('/teams/:id');
 
-  this.get('/empty/projects', function() {
-    return {
-      data: []
-    };
-  });
-
   this.get('/quipu/projects', function({ project }) {
     return project.all();
   });
 
-  this.namespace = 'quipu',
+  this.namespace = 'quipu';
 
   this.get('/projects/:id');
+  this.get('/goals');
+  this.get('/goals/:id');
+  this.post('/goals');
+  this.get('/tasks');
+  this.get('/tasks/:id');
+
+  this.namespace = 'empty';
+
+  this.get('/projects', function({ project }) {
+    return project.where({ taeamId: 'empty' });
+  });
+
+  this.post('/projects', function({ project }, request) {
+    const json  = JSON.parse(request.requestBody);
+    const attrs = json.data.attributes;
+
+    attrs.teamId = 'empty';
+
+    return project.create(attrs);
+  });
+
+  this.get('/projects/:id');
+
+  this.get('/users/:id');
   this.get('/goals');
   this.get('/goals/:id');
   this.get('/tasks');

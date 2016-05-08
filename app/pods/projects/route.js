@@ -10,7 +10,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return this.store.findAll('project');
   },
 
-  redirect(model) {
+  redirect(model, transition) {
+    if (transition.targetName !== `${this.routeName}.index`) {
+      return;
+    }
+
     if (isEmpty(model)) {
       this.transitionTo('first-project');
     } else {

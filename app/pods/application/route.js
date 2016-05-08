@@ -65,5 +65,13 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     }
 
     this.render('application-public');
+  },
+
+  actions: {
+    saveProject(project) {
+      return project.save().then( (proj) => {
+        this.transitionTo('project', proj.id);
+      });
+    }
   }
 });

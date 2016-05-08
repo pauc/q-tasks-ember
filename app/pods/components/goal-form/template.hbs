@@ -1,0 +1,9 @@
+{{buf-field field='name'}}
+
+{{buf-field field='description'}}
+
+{{task-button
+  type="submit"
+  task=save
+  text=(capitalize (t 'actions.save' thing=(t 'models.task.one')))
+}}

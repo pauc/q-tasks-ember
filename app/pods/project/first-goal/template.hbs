@@ -1,1 +1,6 @@
-{{outlet}}
+<h2>{{t 'templates.first-goal.title' projectName=model.project.name}}</h2>
+
+{{goal-form
+  model=model
+  action=(route-action 'saveGoal' model)
+}}

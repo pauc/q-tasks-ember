@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import formBufferProperty from 'ember-validated-form-buffer';
 import { validator, buildValidations } from 'ember-cp-validations';
+import { task } from 'ember-concurrency';
 
 const { Component, inject } = Ember;
 
@@ -26,6 +27,10 @@ export default Component.extend({
 
     this.get('data').applyBufferedChanges();
 
-    console.log('Submitting the foooormmma');
-  }
+    this.get('save').perform();
+  },
+
+  save: task(function * () {
+    yield this.get('action')();
+  }).drop()
 });

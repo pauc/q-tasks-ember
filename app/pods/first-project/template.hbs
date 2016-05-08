@@ -1,1 +1,6 @@
-{{first-project-form model=model}}
+<h2>{{t 'templates.first-project.title'}}</h2>
+
+{{project-form
+  model=model
+  action=(route-action 'saveProject' model)
+}}

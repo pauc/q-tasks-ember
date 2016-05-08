@@ -1,3 +1,6 @@
+actions:
+  save: "desar {thing}"
+
 front_page:
   welcome_message: "Benvingut a Q-Tasks"
 
@@ -5,12 +8,25 @@ authentication:
   error: "Ha fallat l'autenticació. Assegurat que el correu i la contrasenya són correctes."
 
 models:
+  task:
+    one: "tasca"
+
   attributes:
     defaults: &attribute_defaults
       description: "descripció"
       name: "nom"
+    goal:
+      <<: *attribute_defaults
     project:
       <<: *attribute_defaults
+    task:
+      <<: *attribute_defaults
+
+templates:
+  first-goal:
+    title: "Crea el primer objectiu del projecte \"{projectName}\""
+  first-project:
+    title: "Crea un primer projecte per a l'equip"
 
 errors:
   description: ""

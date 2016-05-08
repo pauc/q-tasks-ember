@@ -9,7 +9,12 @@ export default Ember.Route.extend({
     return this.store.findRecord('goal', params.goal_id, { include: 'tasks' });
   },
 
-  redirect(model) {
+  redirect(model, transition) {
+    console.log(transition.targetName, "<<<>>>", this.routeName);
+    if (transition.targetName !== `${this.routeName}.index`) {
+      return;
+    }
+
     const tasks = model.get('tasks');
 
     if (isEmpty(tasks)) {

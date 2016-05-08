@@ -9,7 +9,11 @@ export default Ember.Route.extend({
     return this.store.findRecord('project', params.project_id, { include: 'goals' });
   },
 
-  redirect(model) {
+  redirect(model, transition) {
+    if (transition.targetName !== `${this.routeName}.index`) {
+      return;
+    }
+
     const goals = model.get('goals');
 
     if (goals.get('length')) {
@@ -29,5 +33,13 @@ export default Ember.Route.extend({
       into:   'projects',
       outlet: 'goals-list'
     });
+  },
+
+  actions: {
+    saveGoal(goal) {
+      return goal.save().then( (savedGoal) => {
+        this.transitionTo('goal', savedGoal.id);
+      });
+    }
   }
 });
