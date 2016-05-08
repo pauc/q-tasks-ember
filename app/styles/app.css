@@ -4,11 +4,8 @@
 @import 'inputs';
 @import 'dropdowns';
 @import 'small-task';
-<<<<<<< HEAD
 @import 'tasks-bar';
-=======
 @import 'addons/ember-power-select';
->>>>>>> 35c3c8d... Add more layout styling and customize ember-power-select
 
 *, *:before, *:after { box-sizing: border-box }
 
