@@ -19,7 +19,7 @@ export default function(server) {
   });
 
   server.create('project', {
-    name:   "Fouding round 2016",
+    name:   "Founding round 2016",
     description: `We want to close a founding in late 2016 - early 2017 that
       will enable the company to grow and target new markets`
   });

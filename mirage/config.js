@@ -27,6 +27,7 @@ export default function() {
   this.get('/goals/:id');
   this.post('/goals');
   this.get('/tasks');
+  this.post('/tasks');
   this.get('/tasks/:id');
 
   this.namespace = 'empty';
@@ -49,5 +50,6 @@ export default function() {
   this.get('/goals');
   this.get('/goals/:id');
   this.get('/tasks');
+  this.post('/tasks');
   this.get('/tasks/:id');
 }

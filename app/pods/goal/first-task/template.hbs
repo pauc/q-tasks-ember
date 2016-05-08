@@ -1,3 +1,4 @@
-<div class="template-debug">
-  Here we will present a form to create the first task for this goal.
-</div>
+{{task-form
+  model=model
+  action=(route-action 'saveTask' model)
+}}
