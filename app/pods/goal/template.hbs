@@ -1,7 +1,7 @@
 <h2>{{model.name}}</h2>
 
-<div class="template-debug">
-  "Nav bar" with task links here
-</div>
+{{tasks-bar
+  model=model
+}}
 
 {{outlet}}

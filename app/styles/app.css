@@ -3,6 +3,7 @@
 @import 'fonts';
 @import 'inputs';
 @import 'small-task';
+@import 'tasks-bar';
 
 *, *:before, *:after { box-sizing: border-box }
 
