@@ -1,9 +1,6 @@
-<div class="sidebar">
-  <div class="template-debug">
-    .sidebar
-  </div>
-
-  <div class="template-debug">
+<div class="global-container">
+  <div class="sidebar">
+  
     {{#power-select
       options=model
       selected=currentProject
@@ -12,13 +9,13 @@
     }}
       {{project.name}}
     {{/power-select}}
+  
+    {{outlet 'goals-list'}}
   </div>
 
-  {{outlet 'goals-list'}}
-</div>
+  {{outlet}}
 
-{{outlet}}
-
-<div class="template-debug">
-  Find me in "app/pods/projects/template.hbs"
+  <div class="template-debug">
+    Find me in "app/pods/projects/template.hbs"
+  </div>
 </div>

@@ -1,0 +1,7 @@
+.global-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 400px;
+}

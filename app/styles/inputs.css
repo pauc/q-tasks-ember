@@ -1,9 +1,10 @@
 ::-webkit-input-placeholder { color: #aaa }
 :-moz-placeholder { color: #aaa }
 ::-moz-placeholder { color: #aaa }
-:-ms-input-placeholder {  color: #aaa }
+:-ms-input-placeholder { color: #aaa }
 
 input {
+  color: inherit;
   min-height: 38px;
   width: 100%;
   padding: 0 12px;
