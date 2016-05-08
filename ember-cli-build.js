@@ -52,9 +52,9 @@ module.exports = function(defaults) {
     prepend: true
   });
 
-  //if ((powerSelectCssIndex = app._styleOutputFiles['/assets/vendor.css'].indexOf('vendor/ember-power-select.css')) > -1) {
-    //app._styleOutputFiles['/assets/vendor.css'].splice(powerSelectCssIndex, 1);
-  //}
+  if ((powerSelectCssIndex = app._styleOutputFiles['/assets/vendor.css'].indexOf('vendor/ember-power-select.css')) > -1) {
+    app._styleOutputFiles['/assets/vendor.css'].splice(powerSelectCssIndex, 1);
+  }
 
   return app.toTree();
 };

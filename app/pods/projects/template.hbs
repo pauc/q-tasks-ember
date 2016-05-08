@@ -1,17 +1,25 @@
 <div class="global-container">
   <div class="sidebar">
 
-    {{#power-select
-      options=model
-      selected=currentProject
-      onchange=(route-action 'selectProject')
-      searchEnabled=false as |project|
-    }}
-      {{project.name}}
-    {{/power-select}}
+    <div class="logo-section">
+      <span class="logo">T—A—S—K—S</span>
+    </div>
+
+    <div class="project-selector">
+      {{#power-select
+        options=model
+        selected=currentProject
+        onchange=(route-action 'selectProject')
+        searchEnabled=false as |project|
+      }}
+        {{project.name}}
+      {{/power-select}}
+    </div>
 
     {{outlet 'goals-list'}}
   </div>
 
-  {{outlet}}
+  <div class="task-container">
+    {{outlet}}
+  </div>
 </div>

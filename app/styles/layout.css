@@ -4,4 +4,37 @@
 
 .sidebar {
   width: 400px;
+  padding: 20px 30px 30px 30px;
+  height: 100vh;
+}
+
+.task-container {
+  flex: auto;
+  background-color: #F2F4F5;
+  padding: 0 50px;
+}
+
+.task-header {
+  padding: 20px 0; 
+}
+
+.task-header-title {
+  font-size: 24px;
+}
+
+.project-selector {
+  margin-bottom: 20px;
+
+  .ember-power-select-trigger {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.logo-section {
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 20px;
 }

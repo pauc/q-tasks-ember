@@ -2,16 +2,24 @@
 @import 'layout';
 @import 'fonts';
 @import 'inputs';
+@import 'dropdowns';
 @import 'small-task';
+<<<<<<< HEAD
 @import 'tasks-bar';
+=======
+@import 'addons/ember-power-select';
+>>>>>>> 35c3c8d... Add more layout styling and customize ember-power-select
 
 *, *:before, *:after { box-sizing: border-box }
 
 body {
-  color: #555;
+  color: #5F6467;
   font-size: 14px;
   background-color: #E5E9EC;
   font-family: 'CircularStd';
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .button{
