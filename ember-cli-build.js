@@ -5,7 +5,7 @@ var env = EmberApp.env();
 var s3Prefix;
 
 if (env === "production") {
-  s3Prefix = "https://s3-eu-west-1.amazonaws.com/q-tasks-prod/"
+  s3Prefix = "https://q-tasks-prod.s3.amazonaws.com/"
 }
 
 module.exports = function(defaults) {
