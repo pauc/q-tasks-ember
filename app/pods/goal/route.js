@@ -26,6 +26,11 @@ export default Ember.Route.extend({
       this.set('controller.tasks', tasks);
 
       const newPosition = tasks.indexOf(movedTask) + 1;
+
+      if (newPosition === movedTask.get('position')) {
+        return;
+      }
+
       movedTask.set('position', newPosition);
 
       return movedTask.save().then( () => {
