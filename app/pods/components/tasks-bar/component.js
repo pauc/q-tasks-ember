@@ -6,9 +6,8 @@ export default Ember.Component.extend({
   isDragging:        false,
 
   actions: {
-    reorderTasks(goal, tasks) {
-      console.log(tasks);
-      goal.set('tasks', tasks);
+    reorderTasks(goal, tasks, draggedTask) {
+      this.get('action')(goal, tasks, draggedTask);
     },
 
     dragStarted() {

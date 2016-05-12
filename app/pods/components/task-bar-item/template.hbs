@@ -1,0 +1,15 @@
+{{#if isFirst}}
+  <button type="button" class="insert-task-button" onclick={{action "insertBefore"}}>| + |</button>
+{{/if}}
+
+{{#link-to 'task' model}}
+  {{model.name}}
+{{/link-to}}
+
+<button type="button" class="insert-task-button" onclick={{action "insertAfter"}}>| + |</button>
+
+<div class="handle-container">
+  <div class="handle">&varr;</div>
+</div>
+
+

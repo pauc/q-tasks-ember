@@ -29,6 +29,7 @@ export default function() {
   this.get('/tasks');
   this.post('/tasks');
   this.get('/tasks/:id');
+  this.patch('tasks/:id');
 
   this.namespace = 'empty';
 

@@ -1,15 +1,22 @@
-{{#sortable-group tagName="ul" model=model onChange="reorderTasks" direction="x" as |group|}}
-  {{#each model.tasks as |item|}}
+{{#sortable-group
+  tagName="div"
+  model=model
+  onChange="reorderTasks"
+  direction="x" as |group|
+}}
+  {{#each tasks as |item index|}}
     {{#sortable-item
-      tagName="li"
+      tagName="div"
       model=item
       group=group
-      handle=".handle"
       onDragStart="dragStarted"
       onDragStop="dragStopped"
+      handle=".handle"
     }}
-      {{item.name}}
-      <span class="handle">&varr;</span>
+      {{task-bar-item
+        model=item
+        index=index
+      }}
     {{/sortable-item}}
   {{/each}}
 {{/sortable-group}}

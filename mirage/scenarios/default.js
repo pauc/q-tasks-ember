@@ -57,13 +57,15 @@ export default function(server) {
     server.create('task', {
       name: `Task ${i}`,
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed mi vulputate, eleifend sem vel, eleifend nulla. Aenean non venenatis ipsum. Fusce sollicitudin quam id diam facilisis, eu sollicitudin risus bibendum. Nunc volutpat mattis gravida. Vestibulum dignissim suscipit pellentesque.",
-      goalId: goal1.id
+      goalId: goal1.id,
+      position: i + 1
     });
 
     server.create('task', {
       name: `Task ${i}`,
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed mi vulputate, eleifend sem vel, eleifend nulla. Aenean non venenatis ipsum. Fusce sollicitudin quam id diam facilisis, eu sollicitudin risus bibendum. Nunc volutpat mattis gravida. Vestibulum dignissim suscipit pellentesque.",
-      goalId: goal2.id
+      goalId: goal2.id,
+      position: i + 1
     });
   }
 }

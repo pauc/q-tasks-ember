@@ -5,6 +5,7 @@ const { Model, attr, belongsTo } = DS;
 export default Model.extend({
   name:        attr('string'),
   description: attr('string'),
+  position:    attr('number'),
 
   goal: belongsTo('goal', { inverse: 'tasks' })
 });
