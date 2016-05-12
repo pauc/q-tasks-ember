@@ -10,6 +10,7 @@
         options=model
         selected=currentProject
         onchange=(route-action 'selectProject')
+        afterOptionsComponent="power-select-create-project"
         searchEnabled=false as |project|
       }}
         {{project.name}}

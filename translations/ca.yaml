@@ -8,6 +8,9 @@ authentication:
   error: "Ha fallat l'autenticació. Assegurat que el correu i la contrasenya són correctes."
 
 models:
+  project:
+    one: "projecte"
+    other: "projectes"
   task:
     one: "tasca"
 
@@ -23,6 +26,8 @@ models:
       <<: *attribute_defaults
 
 templates:
+  new_project:
+      title: "Projecte nou"
   first-goal:
     title: "Crea el primer objectiu del projecte \"{projectName}\""
   first-project:

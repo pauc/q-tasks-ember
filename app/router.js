@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('login');
 
   this.route('first-project');
+  this.route('new-project');
 
   this.route('projects', function() {
     this.route('project', { path: '/:project_id', resetNamespace: true }, function() {
