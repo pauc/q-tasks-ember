@@ -30,6 +30,13 @@ body {
   width: 100%;
 }
 
+button {
+  border: inherit;
+  background-color: inherit;
+  cursor: pointer;
+  padding: inherit;
+}
+
 .input-group {
   position: relative;
 }
@@ -67,4 +74,8 @@ body {
 }
 .input-group-col .input-group:last-child .input-group-field {
   border-radius: 0 0 2px 2px;
+}
+
+.task-title {
+  font-size: 20px;
 }

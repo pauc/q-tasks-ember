@@ -1,13 +1,14 @@
-<div class="task-header">
-  <span class="task-header-title">
+<div class="task-section-header">
+  <span class="task-section-header-title">
     {{model.name}}
   </span>
+
+  {{tasks-bar
+    model=model
+    tasks=tasks
+    action=(route-action 'reorderTasks')
+  }}
 </div>
 
-{{tasks-bar
-  model=model
-  tasks=tasks
-  action=(route-action 'reorderTasks')
-}}
-
 {{outlet}}
+

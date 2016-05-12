@@ -1,13 +1,28 @@
 {{#if isFirst}}
-  <button type="button" class="insert-task-button" onclick={{action "insertBefore"}}>| + |</button>
+  <button type="button" class="insert-task-btn first" onclick={{action "insertBefore"}}>
+    <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <rect id="Rectangle-20" sketch:type="MSShapeGroup" x="5" y="0" width="2" height="12" fill="#AFB9C0"></rect>
+      <rect id="Rectangle-20-Copy" sketch:type="MSShapeGroup" x="0" y="5" width="12" height="2" fill="#AFB9C0"></rect>
+    </svg>
+  </button>
 {{/if}}
 
-<a onclick={{route-action "goToTask" model}}>{{model.name}}</a>
+<div class="assignment-box">
+  
+  <div class="checkbox">
+    <input id="11" type="checkbox" class="checkbox-input">
+    <label for="11" class="checkbox-label"></label>
+  </div>
 
-<button type="button" class="insert-task-button" onclick={{action "insertAfter"}}>| + |</button>
-
-<div class="handle-container">
-  <div class="handle">&varr;</div>
+  <a class="assignment-box-title" onclick={{route-action "goToTask" model}}>{{model.name}}</a>
+  <div class="handle"></div>
 </div>
+
+<button type="button" class="insert-task-btn" onclick={{action "insertAfter"}}>
+  <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect id="Rectangle-20" sketch:type="MSShapeGroup" x="5" y="0" width="2" height="12" fill="#AFB9C0"></rect>
+    <rect id="Rectangle-20-Copy" sketch:type="MSShapeGroup" x="0" y="5" width="12" height="2" fill="#AFB9C0"></rect>
+  </svg>
+</button>
 
 

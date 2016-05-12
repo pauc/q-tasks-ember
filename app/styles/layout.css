@@ -1,5 +1,6 @@
 .global-container {
   display: flex;
+  height: 100vh;
 }
 
 .sidebar {
@@ -8,18 +9,29 @@
   height: 100vh;
 }
 
-.task-container {
+.task-section {
   flex: auto;
   background-color: #F2F4F5;
-  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
 }
 
-.task-header {
-  padding: 20px 0; 
+.task-section-header {
+  padding: 20px 50px;
+  flex-shrink: 0;
 }
 
-.task-header-title {
+.task-section-header-title {
   font-size: 24px;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.task-section-main {
+  background-color: white;
+  padding: 30px 50px;
+  flex-grow: 1;
+  overflow: auto;
 }
 
 .project-selector {
