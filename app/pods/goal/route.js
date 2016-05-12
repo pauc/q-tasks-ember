@@ -29,6 +29,10 @@ export default Ember.Route.extend({
       return movedTask.save().then( () => {
         this.refresh();
       });
+    },
+
+    goToTask(task) {
+      this.transitionTo('task', task);
     }
   }
 });
