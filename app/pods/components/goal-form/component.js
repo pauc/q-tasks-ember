@@ -32,5 +32,11 @@ export default Component.extend({
 
   save: task(function * () {
     yield this.get('action')();
-  }).drop()
+  }).drop(),
+
+  actions: {
+    cancel() {
+      this.get('cancel')();
+    }
+  }
 });

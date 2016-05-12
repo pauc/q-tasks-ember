@@ -36,10 +36,36 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    createGoal() {
+      const newGoal = this.store.createRecord('goal', {
+        project: this.get('currentModel')
+      });
+
+      this.set('controller.newGoal', newGoal);
+      this.set('controller.showGoalForm', true);
+    },
+
     saveGoal(goal) {
       return goal.save().then( (savedGoal) => {
+        this.get('currentModel.goals').pushObject(savedGoal);
+        this.set('controller.newGoal', null);
+        this.set('controller.showGoalForm', false);
         this.transitionTo('goal', savedGoal.id);
       });
+    },
+
+    cancelCreateGoal(goal) {
+      goal.deleteRecord();
+      this.set('controller.newGoal', null);
+      this.set('controller.showGoalForm', false);
+    },
+
+    willTransition() {
+      const newGoal = this.get('controller.newGoal');
+
+      if (newGoal && newGoal.get('isNew')) {
+        newGoal.deleteRecord();
+      }
     }
   }
 });

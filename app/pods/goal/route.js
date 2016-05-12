@@ -8,7 +8,9 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     this._super(...arguments);
 
-    const tasks = model.get('tasks').toArray().sortBy('position');
+    const tasks = model.get('tasks').toArray().sortBy('position').filter( (task) => {
+      return !task.get('isNew');
+    });
 
     controller.set('tasks', tasks);
   },

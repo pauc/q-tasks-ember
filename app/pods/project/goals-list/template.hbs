@@ -15,4 +15,15 @@
       </div>
     {{/unless}}
   {{/each}}
+
+  {{#if showGoalForm}}
+    {{goal-form
+      short=true
+      model=newGoal
+      action=(route-action 'saveGoal' newGoal)
+      cancel=(route-action 'cancelCreateGoal' newGoal)
+    }}
+  {{else}}
+    <button type="button" onclick={{route-action "createGoal"}}>+ Goal</button>
+  {{/if}}
 </div>

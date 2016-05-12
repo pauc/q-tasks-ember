@@ -1,9 +1,15 @@
 {{buf-field field='name'}}
 
-{{buf-field field='description'}}
+{{#unless short}}
+  {{buf-field field='description'}}
+{{/unless}}
 
 {{task-button
   type="submit"
   task=save
   text=(capitalize (t 'actions.save' thing=(t 'models.task.one')))
 }}
+
+{{#if cancel}}
+  <button type="button" onclick={{action "cancel"}}>Cancel</button>
+{{/if}}
