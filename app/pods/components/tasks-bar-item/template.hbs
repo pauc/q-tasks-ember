@@ -8,10 +8,10 @@
 {{/if}}
 
 <div class="assignment-box">
-  
+
   <div class="checkbox">
-    <input id="11" type="checkbox" class="checkbox-input">
-    <label for="11" class="checkbox-label"></label>
+    <input id={{checkboxId}} type="checkbox" class="checkbox-input">
+    <label for={{checkboxId}} class="checkbox-label"></label>
   </div>
 
   <a class="assignment-box-title" onclick={{route-action "goToTask" model}}>{{model.name}}</a>

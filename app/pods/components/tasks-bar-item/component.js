@@ -9,6 +9,10 @@ export default Ember.Component.extend({
     return this.get('index') === 0;
   }),
 
+  checkboxId: computed('model.id', function() {
+    return `task-bar-item-checkbox-${this.get('model.id')}`;
+  }),
+
   actions: {
     insertBefore() {
       console.log('insertBefore() fired!!');
