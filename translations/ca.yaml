@@ -24,6 +24,7 @@ models:
       <<: *attribute_defaults
     task:
       <<: *attribute_defaults
+      unassigned: "sense assignar"
 
 templates:
   new_project:

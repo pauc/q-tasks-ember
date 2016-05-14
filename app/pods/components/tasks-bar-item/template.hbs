@@ -14,7 +14,14 @@
     <label for={{checkboxId}} class="checkbox-label"></label>
   </div>
 
-  <a class="assignment-box-title" onclick={{route-action "goToTask" model}}>{{model.name}}</a>
+  {{#if showAssignedTo}}
+    <a class="assignment-box-title" onclick={{route-action "goToTask" model}}>{{assignedTo}}</a>
+  {{/if}}
+
+  {{#if showTaskName}}
+    <a class="assignment-box-title" onclick={{route-action "goToTask" model}}>{{model.name}}</a>
+  {{/if}}
+
   <div class="handle"></div>
 </div>
 

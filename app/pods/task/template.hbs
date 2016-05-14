@@ -1,5 +1,23 @@
 <div class="task-section-main">
+  <div>
+    {{#if isSaving}}
+      SAVING...
+    {{/if}}
+  </div>
+
   <span class="task-title">
-    {{model.name}}
+    {{buf-field data=data field="name"}}
+  </span>
+
+  <span class="task-worker">
+    {{#power-select
+      searchEnabled=false
+      options=users
+      selected=data.user
+      placeholder=(t 'models.attributes.task.unassigned')
+      onchange=(action 'assignUser') as |user|
+    }}
+      {{user.username}}
+    {{/power-select}}
   </span>
 </div>

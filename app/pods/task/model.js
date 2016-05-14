@@ -7,5 +7,6 @@ export default Model.extend({
   description: attr('string'),
   position:    attr('number'),
 
-  goal: belongsTo('goal', { inverse: 'tasks' })
+  goal: belongsTo('goal', { inverse: 'tasks' }),
+  user: belongsTo('user', { inverse: false })
 });
