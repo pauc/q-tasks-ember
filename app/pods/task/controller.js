@@ -52,7 +52,7 @@ export default Ember.Controller.extend({
     }
   }),
 
-  _updateTaskUser: task(function * (user) {
+  _updateTaskUser: task(function * () {
     yield timeout(1500);
 
     const data = this.get('data'),

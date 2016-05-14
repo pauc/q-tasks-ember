@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 
   classNames: ["tasks-bar-item"],
 
-  showAssignedTo: true,
+  showUserName:   true,
   showTaskName:   false,
 
   isFirst: computed('index', function() {
