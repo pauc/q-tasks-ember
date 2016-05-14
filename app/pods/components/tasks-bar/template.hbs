@@ -1,3 +1,13 @@
+<div>
+  <button type="button" onclick={{action 'showUserNames'}} class={{if showUserNames "active"}}>
+    Show user names
+  </button>
+  |
+  <button type="button" onclick={{action 'showTaskNames'}} class={{if showTaskNames "active"}}>
+    Show task names
+  </button>
+</div>
+
 {{#sortable-group class="sortable-items"
   tagName="div"
   model=model
@@ -16,6 +26,8 @@
       {{tasks-bar-item
         model=item
         index=index
+        showTaskName=showTaskNames
+        showUserName=showUserNames
         action=(route-action 'goToTask')
       }}
     {{/sortable-item}}

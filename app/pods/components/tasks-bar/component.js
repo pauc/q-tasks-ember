@@ -5,6 +5,9 @@ export default Ember.Component.extend({
   classNameBindings: ["isDragging:dragging"],
   isDragging:        false,
 
+  showUserNames: true,
+  showTaskNames: false,
+
   actions: {
     reorderTasks(goal, tasks, draggedTask) {
       this.get('action')(goal, tasks, draggedTask);
@@ -18,6 +21,16 @@ export default Ember.Component.extend({
     dragStopped() {
       console.log("Drag ends");
       this.set('isDragging', false);
+    },
+
+    showTaskNames() {
+      this.set('showTaskNames', true);
+      this.set('showUserNames', false);
+    },
+
+    showUserNames() {
+      this.set('showTaskNames', false);
+      this.set('showUserNames', true);
     }
   }
 });
