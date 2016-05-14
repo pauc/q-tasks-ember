@@ -55,17 +55,22 @@ export default Ember.Route.extend({
     },
 
     cancelCreateGoal(goal) {
-      goal.deleteRecord();
-      this.set('controller.newGoal', null);
-      this.set('controller.showGoalForm', false);
+      this._cancelCreateGoal(goal);
     },
 
     willTransition() {
       const newGoal = this.get('controller.newGoal');
 
-      if (newGoal && newGoal.get('isNew')) {
-        newGoal.deleteRecord();
-      }
+      this._cancelCreateGoal(newGoal);
     }
+  },
+
+  _cancelCreateGoal(goal) {
+    if (goal) {
+      goal.deleteRecord();
+    }
+
+    this.set('controller.newGoal', null);
+    this.set('controller.showGoalForm', false);
   }
 });
