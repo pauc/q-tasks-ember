@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { task } from 'ember-concurrency';
 
 export default Ember.Route.extend({
   model(params) {
@@ -15,13 +16,19 @@ export default Ember.Route.extend({
     controller.set('tasks', tasks);
   },
 
-  actions: {
-    saveTask(task) {
-      return task.save().then( (savedTask) => {
-        this.transitionTo('task', savedTask.id);
-      });
-    },
+  insertTaskAt: task(function * (position) {
+    const controller = this.get('controller');
 
+    yield this.store.createRecord('task', {
+      position: position,
+      goal:     this.get('currentModel')
+    }).save().then( savedTask => {
+      controller.get('tasks').insertAt(position - 1, savedTask);
+      this.transitionTo('task', savedTask.get('id'));
+    });
+  }).drop(),
+
+  actions: {
     reorderTasks(goal, tasks, movedTask) {
       this.set('controller.tasks', tasks);
 
@@ -40,6 +47,10 @@ export default Ember.Route.extend({
 
     goToTask(task) {
       this.transitionTo('task', task);
+    },
+
+    insertAt(position) {
+      this.get('insertTaskAt').perform(position);
     }
   }
 });

@@ -27,15 +27,21 @@ export default Ember.Component.extend({
 
   actions: {
     insertBefore() {
-      console.log('insertBefore() fired!!');
       event.stopPropagation();
       event.preventDefault();
+
+      const position = this.get('index') + 1;
+
+      this.sendAction('insertAt', position);
     },
 
     insertAfter(event) {
-      console.log('insertAfter() fired!!');
       event.stopPropagation();
       event.preventDefault();
+
+      const position = this.get('index') + 2;
+
+      this.sendAction('insertAt', position);
     }
   }
 });
