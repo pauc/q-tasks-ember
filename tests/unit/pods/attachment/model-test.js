@@ -1,10 +1,9 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('task', 'Unit | Model | task', {
+moduleForModel('attachment', 'Unit | Model | attachment', {
   // Specify the other units that are required for this test.
   needs: [
-    'model:goal',
-    'model:user'
+    'model:goal'
   ]
 });
 

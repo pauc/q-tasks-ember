@@ -5,6 +5,7 @@ export default Model.extend({
   name: attr('string'),
   description: attr('string'),
 
-  project: belongsTo('project', { inverse: 'goals' }),
-  tasks:   hasMany('task', { inverse: 'goal' })
+  project:     belongsTo('project', { inverse: 'goals' }),
+  tasks:       hasMany('task', { inverse: 'goal' }),
+  attachments: hasMany('attachment', { inverse: 'goal' })
 });
