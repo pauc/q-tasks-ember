@@ -26,12 +26,14 @@ export default function(server) {
 
   server.create('user', {
     email:  'quipu-user-1@example.com',
+    username: "Gorka",
     teamId: quipu.id,
     currentProjectId: null
   });
 
   server.create('user', {
     email: 'quipu-user-2@example.com',
+    username: "Hayk",
     teamId: 'quipu'
   });
 

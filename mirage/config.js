@@ -10,10 +10,6 @@ export default function() {
     };
   });
 
-  this.get('/quipu/users/:id', function({ user }, request) {
-    return user.find(request.params.id);
-  });
-
   this.get('/teams/:id');
 
   this.get('/quipu/projects', function({ project }) {
@@ -23,6 +19,8 @@ export default function() {
   this.namespace = 'quipu';
 
   this.get('/projects/:id');
+  this.get('/users');
+  this.get('/users/:id');
   this.get('/goals');
   this.get('/goals/:id');
   this.post('/goals');
@@ -47,6 +45,7 @@ export default function() {
   });
 
   this.get('/projects/:id');
+  this.get('/users');
   this.get('/users/:id');
   this.get('/goals');
   this.get('/goals/:id');

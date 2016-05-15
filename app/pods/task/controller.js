@@ -28,6 +28,11 @@ export default Ember.Controller.extend({
     this.get('_updateTaskName').perform();
   }),
 
+  forceSync() {
+    this.get('_updateTaskName').perform(true);
+    this.get('_updateTaskUser').perform(true);
+  },
+
   actions: {
     assignUser(user) {
       const buffer = this.get('data');
@@ -38,10 +43,12 @@ export default Ember.Controller.extend({
     }
   },
 
-  _updateTaskName: task(function * () {
-    yield timeout(1500);
+  _updateTaskName: task(function * (skipTimeout = false) {
+    if (!skipTimeout) {
+      yield timeout(1500);
+    }
 
-    const data = this.get('data'),
+    const data  = this.get('data'),
           model = this.get('model');
 
 
@@ -52,8 +59,10 @@ export default Ember.Controller.extend({
     }
   }),
 
-  _updateTaskUser: task(function * () {
-    yield timeout(1500);
+  _updateTaskUser: task(function * (skipTimeout = false) {
+    if (!skipTimeout) {
+      yield timeout(1500);
+    }
 
     const data = this.get('data'),
           model = this.get('model');
