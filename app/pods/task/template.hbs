@@ -20,4 +20,23 @@
       {{user.username}}
     {{/power-select}}
   </span>
+
+  <label for="task-description-field" onclick={{action "enableDescriptionEdit"}}>
+    {{t "models.attributes.task.description"}}
+  </label>
+  {{#if isEditingDescription}}
+    <span class="task-description">
+      <textarea
+        id="task-description-field"
+        rows="4"
+        value={{data.descriptionMarkdown}}
+        onblur={{action "disableDescriptionEdit"}}
+        onchange={{action "updateDescription" value="target.value"}}>
+      </textarea>
+    </span>
+  {{else}}
+    <label for="task-description-field" class="task-description" onclick={{action 'enableDescriptionEdit'}}>
+      {{{model.descriptionHtml}}}
+    </label>
+  {{/if}}
 </div>

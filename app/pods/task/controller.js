@@ -6,6 +6,7 @@ const { computed, observer } = Ember;
 
 export default Ember.Controller.extend({
   isSaving: false,
+  isEditingDescription: false,
 
   data: computed('model', function() {
     return BufferedProxy.create({
@@ -40,6 +41,20 @@ export default Ember.Controller.extend({
       buffer.set('user', user);
 
       this.get('_updateTaskUser').perform();
+    },
+
+    enableDescriptionEdit() {
+      this.set("isEditingDescription", true);
+    },
+
+    disableDescriptionEdit() {
+      this.set("isEditingDescription", false);
+    },
+
+    updateDescription(descriptionMardown) {
+      console.log(descriptionMardown);
+      this.set('data.descriptionMarkdown', descriptionMardown);
+      this.get('saveTask').perform();
     }
   },
 
