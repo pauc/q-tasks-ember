@@ -24,7 +24,9 @@ models:
       <<: *attribute_defaults
     task:
       <<: *attribute_defaults
+      name: "títol"
       unassigned: "sense assignar"
+      unnamed: "sense títol"
 
 templates:
   new_project:

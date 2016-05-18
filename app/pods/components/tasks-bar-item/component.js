@@ -25,6 +25,13 @@ export default Ember.Component.extend({
       this.get('intl').t('models.attributes.task.unassigned').capitalize();
   }),
 
+  taskName: computed('model.name', function() {
+    const taskName = this.get('model.name');
+
+    return taskName ||
+      this.get('intl').t('models.attributes.task.unnamed').capitalize();
+  }),
+
   actions: {
     insertBefore() {
       event.stopPropagation();
