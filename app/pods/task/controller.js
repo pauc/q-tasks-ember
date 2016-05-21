@@ -54,7 +54,7 @@ export default Ember.Controller.extend({
         const $textarea = Ember.$('textarea.assignment-description-field');
 
         $textarea.focus();
-      })
+      });
     },
 
     disableDescriptionEdit() {

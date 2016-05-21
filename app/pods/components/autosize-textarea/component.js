@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import autosize from 'npm:autosize'
+import autosize from 'npm:autosize';
 
 const { TextArea } = Ember;
 
