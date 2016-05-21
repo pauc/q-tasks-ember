@@ -21,6 +21,14 @@ export default Ember.Component.extend({
     this.setValue();
   }),
 
+  didInsertElement() {
+    this._super(...arguments);
+
+    if (this.get('autofocus')) {
+      this.$('input').focus();
+    }
+  },
+
   setForm() {
     if (this.get('form')) { return; }
 
