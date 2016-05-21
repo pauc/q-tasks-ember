@@ -14,6 +14,10 @@ export default Ember.Controller.extend({
     });
   }),
 
+  showDescriptionTextarea: computed('data.descriptionMarkdown', 'isEditingDescription', function() {
+    return this.get('isEditingDescription') || Ember.isBlank(this.get('data.descriptionMarkdown'));
+  }),
+
   saveTask: task(function * () {
     const buffer = this.get('data');
 
@@ -45,6 +49,12 @@ export default Ember.Controller.extend({
 
     enableDescriptionEdit() {
       this.set("isEditingDescription", true);
+
+      Ember.run.next( () => {
+        const $textarea = Ember.$('textarea.assignment-description-field');
+
+        $textarea.focus();
+      })
     },
 
     disableDescriptionEdit() {
@@ -52,7 +62,6 @@ export default Ember.Controller.extend({
     },
 
     updateDescription(descriptionMardown) {
-      console.log(descriptionMardown);
       this.set('data.descriptionMarkdown', descriptionMardown);
       this.get('saveTask').perform();
     }

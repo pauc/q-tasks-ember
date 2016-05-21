@@ -6,6 +6,7 @@
 @import 'small-task';
 @import 'tasks-bar';
 @import 'addons/ember-power-select';
+@import 'basscss';
 
 @import 'provisional'; /* TODO: Remove-it */
 
@@ -14,6 +15,7 @@
 body {
   color: #5F6467;
   font-size: 14px;
+  line-height: 1.6;
   background-color: #E5E9EC;
   font-family: 'CircularStd';
 
@@ -33,10 +35,11 @@ body {
 }
 
 button {
-  border: inherit;
+  color: inherit;
   background-color: inherit;
   cursor: pointer;
-  padding: inherit;
+  border: initial;
+  padding: initial;
 }
 
 .input-group {
@@ -80,4 +83,25 @@ button {
 
 .task-title {
   font-size: 20px;
+}
+
+.task-title-saving {
+  display: none;
+}
+
+.task-worker-select {
+  margin-bottom: 20px;
+}
+
+.assignment-title-field {
+  font-size: 20px;
+  padding: 0;
+  border: 0;
+  margin-bottom: 10px;
+}
+
+.assignment-description-field {
+  padding: 0;
+  border: 0;
+  font-size: 14px;
 }

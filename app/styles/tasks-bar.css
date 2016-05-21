@@ -50,14 +50,45 @@
 
 .assignment-box-title {
   margin-left: 10px;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tasks-bar-item {
   display: flex;
 }
 
+.sortable-items-wrapper {
+  position: relative;
+  margin: 0 -44px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #F2F4F5;
+    height: 50px;
+    width: 20px;
+    box-shadow: 5px 0 20px #F2F4F5;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #F2F4F5;
+    height: 50px;
+    width: 20px;
+    box-shadow: -5px 0 20px #F2F4F5;
+  }
+}
 .sortable-items {
   display: flex;
+  overflow-x: auto;
+  padding: 0 44px 20px 44px;
 }
 
 .sortable-item {

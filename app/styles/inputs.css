@@ -21,6 +21,16 @@ input:focus {
   border-left-color: #0091EB;
 }
 
+textarea {
+  resize: none;
+  width: 100%;
+  color: inherit;
+}
+textarea:focus {
+  outline: 0;
+  border-left-color: #0091EB;
+}
+
 .checkbox-input {
   display: none;
 }

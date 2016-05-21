@@ -1,15 +1,11 @@
-<div class="task-section-main">
-  <div>
+<div class="main-section-body">
+  <div class="task-title-saving">
     {{#if isSaving}}
       SAVING...
     {{/if}}
   </div>
 
-  <span class="task-title">
-    {{buf-field data=data field="name"}}
-  </span>
-
-  <span class="task-worker">
+  <div class="task-worker-select">
     {{#power-select
       searchEnabled=false
       options=users
@@ -19,24 +15,28 @@
     }}
       {{user.username}}
     {{/power-select}}
-  </span>
+  </div>
 
-  <label for="task-description-field" onclick={{action "enableDescriptionEdit"}}>
-    {{t "models.attributes.task.description"}}
-  </label>
-  {{#if isEditingDescription}}
-    <span class="task-description">
-      <textarea
-        id="task-description-field"
-        rows="4"
-        value={{data.descriptionMarkdown}}
-        onblur={{action "disableDescriptionEdit"}}
-        onchange={{action "updateDescription" value="target.value"}}>
-      </textarea>
-    </span>
+  {{input
+    type="text"
+    placeholder=(t 'models.attributes.task.name')
+    class="assignment-title-field"
+    autofocus=true
+    value=data.name
+  }}
+
+  {{#if showDescriptionTextarea}}
+    {{autosize-textarea
+      placeholder=(capitalize (t 'models.attributes.task.description'))
+      class="assignment-description-field"
+      value=data.descriptionMarkdown
+      focusOut=(action 'disableDescriptionEdit')
+      change=(action 'updateDescription' value='target.value')
+      keyDown=(action 'enableDescriptionEdit')
+    }}
   {{else}}
-    <label for="task-description-field" class="task-description" onclick={{action 'enableDescriptionEdit'}}>
-      {{{model.descriptionHtml}}}
-    </label>
+    <div class="assignment-description" ondblclick={{action 'enableDescriptionEdit'}}>
+      {{{data.descriptionHtml}}}
+    </div>
   {{/if}}
 </div>

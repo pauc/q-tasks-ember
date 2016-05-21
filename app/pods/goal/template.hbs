@@ -1,26 +1,46 @@
-<div class="task-section-header">
-  {{#unless filesPanelIsVisible}}
-    <button type="button" style="float: right;" onclick={{action 'openFilesPanel'}}>Files</button>
-  {{/unless}}
+<div class="main-section">
+  <div class="main-section-header"> 
 
-  <span class="task-section-header-title">
-    {{model.name}}
-  </span>
+    <div class="task-top-bar">
+      <span class="task-section-header-title">
+        {{model.name}}
+      </span>
 
-  {{tasks-bar
-    model=model
-    tasks=tasks
-    action=(route-action 'reorderTasks')
-  }}
+      <div class="flex-auto"></div>
+
+      <div class="task-top-bar-btn">
+        <span>Mode</span>
+      </div>
+      <div class="task-top-bar-btn">
+        <span>Delete</span>
+      </div>
+      <div class="task-top-bar-btn">
+
+        {{#unless filesPanelIsVisible}}
+          <button type="button" style="float: right;" onclick={{action 'openFilesPanel'}}>Files</button>
+        {{/unless}}
+
+      </div>
+    </div>
+
+    {{tasks-bar
+      model=model
+      tasks=tasks
+      action=(route-action 'reorderTasks')
+    }}
+  </div>
+
+  {{outlet}}
 </div>
-
-{{outlet}}
 
 {{#if filesPanelIsVisible}}
   <div class="files-panel">
-    <button type="button" onclick={{action 'closeFilesPanel'}}>Close</button>
 
-    <h1>Show me the files</h1>
+    <div class="files-panel-header">
+      <span class="files-panel-title">Files</span>
+
+      <button type="button" onclick={{action 'closeFilesPanel'}}>Close</button>
+    </div>
 
     {{#pl-uploader
       for="upload-file"

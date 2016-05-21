@@ -8,6 +8,7 @@
     "pretender": "~0.12.0",
     "Faker": "~3.0.0",
     "normalize-css": "^4.1.1",
-    "dinosheets": "0.1.1"
+    "dinosheets": "0.1.1",
+    "plupload": "v2.1.8"
   }
 }
