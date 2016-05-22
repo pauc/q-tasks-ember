@@ -15,11 +15,12 @@
         <span>Delete</span>
       </div>
       <div class="task-top-bar-btn">
-
-        {{#unless filesPanelIsVisible}}
-          <button type="button" onclick={{action 'openFilesPanel'}}>Files</button>
-        {{/unless}}
-
+        <button
+          type="button"
+          onclick={{action 'toggleFilesPanel'}}
+          class="button {{if filesPanelIsVisible 'active'}}">
+          Files
+        </button>
       </div>
     </div>
 
@@ -34,39 +35,41 @@
   {{outlet}}
 </div>
 
-{{#files-panel
-  model=model
-  close=(action 'closeFilesPanel')
-}}
-  {{#pl-uploader
-    for="upload-file"
-    name="panel-right-file-uploader"
-    multipart=true
-    multiple=true
-    runtimes="html5"
-    no-duplicates=true
-    unique-names=true
-    onInitOfUploader="onInitOfUploader"
-    onfileadd="uploadImage" as |queue dropzone|
+{{#if filesPanelIsVisible}}
+  {{#files-panel
+    model=model
+    close=(action 'closeFilesPanel')
   }}
-    <div class="dropzone" id={{dropzone.id}}>
-      {{#if dropzone.active}}
-        {{#if dropzone.valid}}
-          Drop to upload
-        {{else}}
-          Invalid
-        {{/if}}
-      {{else if queue.length}}
-        Uploading {{queue.length}} files. ({{queue.progress}}%)
-      {{else}}
-        <h4>Upload Images</h4>
-        <p>
-          {{#if dropzone.enabled}}
-            Drag and drop images onto this area to upload them or
+    {{#pl-uploader
+      for="upload-file"
+      name="panel-right-file-uploader"
+      multipart=true
+      multiple=true
+      runtimes="html5"
+      no-duplicates=true
+      unique-names=true
+      onInitOfUploader="onInitOfUploader"
+      onfileadd="uploadImage" as |queue dropzone|
+    }}
+      <div class="dropzone" id={{dropzone.id}}>
+        {{#if dropzone.active}}
+          {{#if dropzone.valid}}
+            Drop to upload
+          {{else}}
+            Invalid
           {{/if}}
-          <a id="upload-file">Add an Image.</a>
-        </p>
-      {{/if}}
-    </div>
-  {{/pl-uploader}}
-{{/files-panel}}
+        {{else if queue.length}}
+          Uploading {{queue.length}} files. ({{queue.progress}}%)
+        {{else}}
+          <h4>Upload Images</h4>
+          <p>
+            {{#if dropzone.enabled}}
+              Drag and drop images onto this area to upload them or
+            {{/if}}
+            <a id="upload-file">Add an Image.</a>
+          </p>
+        {{/if}}
+      </div>
+    {{/pl-uploader}}
+  {{/files-panel}}
+{{/if}}

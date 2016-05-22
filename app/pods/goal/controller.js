@@ -19,6 +19,14 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
+    toggleFilesPanel() {
+      if (this.get('filesPanelIsVisible')) {
+        this.get('actions.closeFilesPanel').apply(this);
+      } else {
+        this.get('actions.openFilesPanel').apply(this);
+      }
+    },
+
     closeFilesPanel() {
       this.set('filesPanelIsVisible', false);
     },
