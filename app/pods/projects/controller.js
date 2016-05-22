@@ -5,5 +5,5 @@ const { Controller, computed, inject } = Ember;
 export default Controller.extend({
   project: inject.controller(),
 
-  currentProject: computed.reads('project.model')
+  currentProject: computed.reads('project.model'),
 });
