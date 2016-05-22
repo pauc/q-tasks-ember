@@ -6,12 +6,17 @@ export default Ember.Controller.extend({
   currentTeam: inject.service(),
   session:     inject.service(),
   store:       inject.service(),
+  taskController: inject.controller('task'),
 
   uploadFileUrl: computed(function() {
     return `/${this.get('currentTeam.id')}/attachments`;
   }),
 
   filesPanelIsVisible: true,
+
+  currentTask: computed('taskController.model', function() {
+    return this.get('taskController.model');
+  }),
 
   actions: {
     closeFilesPanel() {
@@ -40,7 +45,6 @@ export default Ember.Controller.extend({
         }
       }).then( ({status, body}) => {
         if (status === 201) {
-          debugger;
           this.get('store').pushPayload('attachment', JSON.parse(body));
         }
       });

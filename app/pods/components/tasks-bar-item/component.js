@@ -32,6 +32,10 @@ export default Ember.Component.extend({
       this.get('intl').t('models.attributes.task.unnamed').capitalize();
   }),
 
+  active: computed('currentTask', function() {
+    return this.get('currentTask.id') === this.get('model.id');
+  }),
+
   actions: {
     insertBefore() {
       event.stopPropagation();
