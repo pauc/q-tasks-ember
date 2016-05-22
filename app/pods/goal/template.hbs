@@ -33,45 +33,39 @@
   {{outlet}}
 </div>
 
-{{#if filesPanelIsVisible}}
-  <div class="files-panel">
-
-    <div class="files-panel-header">
-      <span class="files-panel-title">Files</span>
-
-      <button type="button" onclick={{action 'closeFilesPanel'}}>Close</button>
-    </div>
-
-    {{#pl-uploader
-      for="upload-file"
-      name="panel-right-file-uploader"
-      multipart=true
-      multiple=true
-      runtimes="html5"
-      no-duplicates=true
-      unique-names=true
-      onInitOfUploader="onInitOfUploader"
-      onfileadd="uploadImage" as |queue dropzone|
-    }}
-      <div class="dropzone" id={{dropzone.id}}>
-        {{#if dropzone.active}}
-          {{#if dropzone.valid}}
-            Drop to upload
-          {{else}}
-            Invalid
-          {{/if}}
-        {{else if queue.length}}
-          Uploading {{queue.length}} files. ({{queue.progress}}%)
+{{#files-panel
+  model=model
+  close=(action 'closeFilesPanel')
+}}
+  {{#pl-uploader
+    for="upload-file"
+    name="panel-right-file-uploader"
+    multipart=true
+    multiple=true
+    runtimes="html5"
+    no-duplicates=true
+    unique-names=true
+    onInitOfUploader="onInitOfUploader"
+    onfileadd="uploadImage" as |queue dropzone|
+  }}
+    <div class="dropzone" id={{dropzone.id}}>
+      {{#if dropzone.active}}
+        {{#if dropzone.valid}}
+          Drop to upload
         {{else}}
-          <h4>Upload Images</h4>
-          <p>
-            {{#if dropzone.enabled}}
-              Drag and drop images onto this area to upload them or
-            {{/if}}
-            <a id="upload-file">Add an Image.</a>
-          </p>
+          Invalid
         {{/if}}
-      </div>
-    {{/pl-uploader}}
-  </div>
-{{/if}}
+      {{else if queue.length}}
+        Uploading {{queue.length}} files. ({{queue.progress}}%)
+      {{else}}
+        <h4>Upload Images</h4>
+        <p>
+          {{#if dropzone.enabled}}
+            Drag and drop images onto this area to upload them or
+          {{/if}}
+          <a id="upload-file">Add an Image.</a>
+        </p>
+      {{/if}}
+    </div>
+  {{/pl-uploader}}
+{{/files-panel}}

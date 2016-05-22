@@ -1,0 +1,22 @@
+<div class="files-panel-header">
+  <span class="files-panel-title">Files</span>
+
+  <button type="button" onclick={{close}}>Close</button>
+</div>
+
+<div class="files-list">
+  {{#each model.attachments as |attachment|}}
+    <div>
+      *
+      <a href={{attachment.fileUrl}} target="_blank">
+        {{#if attachment.isImage}}
+          <img src="{{attachment.thumbUrl}}">
+        {{else}}
+          A file
+        {{/if}}
+      </a>
+    </div>
+  {{/each}}
+</div>
+
+{{yield}}

@@ -5,6 +5,7 @@ const { computed, inject } = Ember;
 export default Ember.Controller.extend({
   currentTeam: inject.service(),
   session:     inject.service(),
+  store:       inject.service(),
 
   uploadFileUrl: computed(function() {
     return `/${this.get('currentTeam.id')}/attachments`;
@@ -36,6 +37,11 @@ export default Ember.Controller.extend({
 
         data: {
           goal_id: this.get('model.id')
+        }
+      }).then( ({status, body}) => {
+        if (status === 201) {
+          debugger;
+          this.get('store').pushPayload('attachment', JSON.parse(body));
         }
       });
     }
