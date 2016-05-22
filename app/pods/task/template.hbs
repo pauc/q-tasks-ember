@@ -34,9 +34,11 @@
       change=(action 'updateDescription' value='target.value')
       keyDown=(action 'enableDescriptionEdit')
     }}
+    <button type="button" onclick={{action 'disableDescriptionEdit'}} class="button">Save</button>
   {{else}}
     <div class="assignment-description" ondblclick={{action 'enableDescriptionEdit'}}>
       {{{data.descriptionHtml}}}
     </div>
+    <button type="button" onclick={{action 'enableDescriptionEdit'}} class="button">Edit description</button>
   {{/if}}
 </div>
