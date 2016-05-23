@@ -58,12 +58,22 @@
   border-left: 1px solid #E5E9EC;
   width: 25%;
   flex-shrink: 0;
-  padding: 30px;
-  overflow: auto;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
 }
 
 .files-panel-header {
-  display: flex;
+  flex-shrink: 0;
+  padding: 30px 30px 0 30px;
+}
+
+.files-panel-main {
+  flex-grow: 1;
+  padding: 0 30px 30px 30px;
+  overflow: auto;
 }
 
 .project-selector {

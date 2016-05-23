@@ -1,21 +1,24 @@
 <div class="files-panel-header">
-  <span class="files-panel-title">Files</span>
+  <div class="flex">
+    <span class="files-panel-title">Files</span>
+    <button type="button" onclick={{close}}>Close</button>
+  </div>
 
-  <button type="button" onclick={{close}}>Close</button>
+  {{yield}}
 </div>
 
-{{yield}}
-
-<div class="files-list">
-  {{#each sortedAttachments as |attachment|}}
-    <div class="files-list-item">
-      <a href={{attachment.fileUrl}} target="_blank">
-        {{#if attachment.isImage}}
-          <img src="{{attachment.thumbUrl}}">
-          <br>
-        {{/if}}
-        {{attachment.fileName}}
-      </a>
-    </div>
-  {{/each}}
+<div class="files-panel-main">
+  <div class="files-list">
+    {{#each sortedAttachments as |attachment|}}
+      <div class="files-list-item">
+        <a href={{attachment.fileUrl}} target="_blank">
+          {{#if attachment.isImage}}
+            <img src="{{attachment.thumbUrl}}">
+            <br>
+          {{/if}}
+          {{attachment.fileName}}
+        </a>
+      </div>
+    {{/each}}
+  </div>
 </div>
