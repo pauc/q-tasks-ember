@@ -105,3 +105,10 @@ button {
   border: 0;
   font-size: 14px;
 }
+
+.files-list-item {
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  padding: 10px;
+}

@@ -54,11 +54,12 @@
 }
 
 .files-panel {
-  background-color: #fff;
+  background-color: #F2F4F5;
   border-left: 1px solid #E5E9EC;
   width: 25%;
   flex-shrink: 0;
   padding: 30px;
+  overflow: auto;
 }
 
 .files-panel-header {

@@ -51,23 +51,28 @@
       onInitOfUploader="onInitOfUploader"
       onfileadd="uploadImage" as |queue dropzone|
     }}
-      <div class="dropzone" id={{dropzone.id}}>
+      <div class="dropzone-container" id={{dropzone.id}}>
         {{#if dropzone.active}}
           {{#if dropzone.valid}}
-            Drop to upload
+            <div class="dropzone file-over"></div>
           {{else}}
-            Invalid
+            <div class="dropzone">
+              Invalid
+            </div>
           {{/if}}
         {{else if queue.length}}
-          Uploading {{queue.length}} files. ({{queue.progress}}%)
+          <div class="dropzone">
+            <div class="dropzone-loader" style="height:{{queue.progress}}px"></div>
+            <div class="dropzone-loader-percent">
+              {{queue.progress}}%
+            </div>
+          </div>
         {{else}}
-          <h4>Upload Images</h4>
-          <p>
-            {{#if dropzone.enabled}}
-              Drag and drop images onto this area to upload them or
-            {{/if}}
-            <a id="upload-file">Add an Image.</a>
-          </p>
+          {{#if dropzone.enabled}}
+            <div class="dropzone">
+              <a class="dropzone-link" id="upload-file"></a>
+            </div>
+          {{/if}}
         {{/if}}
       </div>
     {{/pl-uploader}}
