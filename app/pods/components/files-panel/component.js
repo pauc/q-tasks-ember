@@ -1,7 +1,12 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const { Component, computed } = Ember;
+
+export default Component.extend({
   classNames: ["files-panel"],
+
+  sortDefinition:    ['createdAt:desc'],
+  sortedAttachments: computed.sort('model.attachments', 'sortDefinition'),
 
   actions: {
   }
