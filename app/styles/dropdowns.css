@@ -18,10 +18,20 @@
 
 .dropdown-menu {
   background-color: white;
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,.2);
+  box-shadow: 0 12px 18px -8px rgba(0,0,0,.3), 0 7px 30px 0px rgba(0,0,0,.1);
+}
+
+.ember-basic-dropdown--transitioning-in {
+  animation: dropdown .2s cubic-bezier(0,0,0,1);
+}
+@keyframes dropdown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
 }
 
 .dropdown-menu-item {
-  padding: 8px 12px;
+  padding: 8px 24px;
   cursor: pointer;
 }

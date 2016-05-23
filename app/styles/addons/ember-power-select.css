@@ -16,6 +16,7 @@
   position: absolute;
   width: auto;
   z-index: 1000;
+  width: auto !important;
 
   @extend .dropdown-menu;
 }
@@ -103,7 +104,8 @@
 
 .ember-power-select-options {
   list-style: none;
-  padding: inherit;
+  padding: 10px 0;
+  margin: inherit;
 }
 
 .ember-power-select-option {
@@ -115,7 +117,7 @@
   pointer-events: none; }
 
 .ember-power-select-option[aria-selected="true"] {
-  background-color: #dddddd; }
+  background-color: #F2F4F5; }
 
 .ember-power-select-option[aria-current="true"] {
   background-color: $blue;
