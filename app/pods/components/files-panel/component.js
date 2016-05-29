@@ -9,5 +9,8 @@ export default Component.extend({
   sortedAttachments: computed.sort('model.attachments', 'sortDefinition'),
 
   actions: {
+    deleteAttachment(attachment) {
+      this.get('deleteAttachment')(attachment);
+    }
   }
 });

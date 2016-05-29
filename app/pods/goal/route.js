@@ -51,6 +51,11 @@ export default Ember.Route.extend({
 
     insertAt(position) {
       this.get('insertTaskAt').perform(position);
+    },
+
+    deleteAttachment(attachment) {
+      debugger;
+      attachment.destroyRecord();
     }
   }
 });

@@ -38,6 +38,7 @@
 {{#if filesPanelIsVisible}}
   {{#files-panel
     model=model
+    deleteAttachment=(route-action 'deleteAttachment')
     close=(action 'closeFilesPanel')
   }}
     {{#pl-uploader
