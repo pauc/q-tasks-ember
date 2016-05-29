@@ -54,7 +54,6 @@ export default Ember.Route.extend({
     },
 
     deleteAttachment(attachment) {
-      debugger;
       attachment.destroyRecord();
     }
   }
