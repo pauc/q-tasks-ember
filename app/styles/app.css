@@ -1,3 +1,4 @@
+@import 'variables';
 @import 'base';
 @import 'layout';
 @import 'fonts';
@@ -13,7 +14,7 @@
 *, *:before, *:after { box-sizing: border-box }
 
 body {
-  color: #5F6467;
+  color: $body-color;
   font-size: 14px;
   line-height: 1.6;
   background-color: #E5E9EC;
@@ -40,6 +41,10 @@ button {
   cursor: pointer;
   border: initial;
   padding: initial;
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 .input-group {

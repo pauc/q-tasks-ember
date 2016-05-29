@@ -9,6 +9,7 @@
     "Faker": "~3.0.0",
     "normalize-css": "^4.1.1",
     "dinosheets": "0.1.1",
-    "plupload": "v2.1.8"
+    "plupload": "v2.1.8",
+    "perfect-scrollbar": "^0.6.11"
   }
 }

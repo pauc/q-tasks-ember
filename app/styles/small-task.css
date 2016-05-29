@@ -1,13 +1,30 @@
 .small-task {
-  background-color: white;
-  padding: 12px 5px 12px 15px;
+  position: relative;
+  background-color: #F2F4F5;
+  padding: 0 15px;
   display: flex;
   align-items: center;
   border-radius: 2px;
   margin-bottom: 2px;
+  height: 50px;
+  overflow: hidden;
+  color: inherit;
+
+  &.active {
+    background-color: white;
+    &:before {
+      content: "";
+      width: 4px;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      
+    }
+  }
 }
 
 .small-task-title {
   color: inherit;
-  margin-left: 20px;
+  margin-left: 15px;
 }

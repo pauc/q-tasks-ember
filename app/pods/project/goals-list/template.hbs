@@ -1,18 +1,20 @@
 <div class="small-tasks">
   {{#each model.goals as |goal|}}
     {{#unless goal.isNew}}
-      <div class="small-task">
+      
+      {{#link-to 'goal' model.id goal.id class="small-task"}}
 
         <div class="checkbox">
           <input id="{{goal.id}}" type="checkbox" class="checkbox-input">
           <label for="{{goal.id}}" class="checkbox-label"></label>
         </div>
-
-        {{#link-to 'goal' model.id goal.id class="small-task-title"}}
+      
+        <div class="small-task-title truncate">
           {{goal.name}}
-        {{/link-to}}
+        </div>
 
-      </div>
+      {{/link-to}}
+
     {{/unless}}
   {{/each}}
 

@@ -46,6 +46,7 @@
     "ember-intl": "2.9.2",
     "ember-intl-cp-validations": "2.2.0",
     "ember-load-initializers": "^0.5.1",
+    "ember-perfectscroll": "0.1.2",
     "ember-plupload": "1.13.14",
     "ember-power-select": "0.10.3",
     "ember-resolver": "^2.0.3",

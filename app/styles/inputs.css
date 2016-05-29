@@ -36,7 +36,7 @@ textarea:focus {
 }
 
 .checkbox-label {
-  border: 2px solid #ddd;
+  border: 2px solid #E5E9EC;
   height: 26px;
   width: 26px;
   display: inline-block;
