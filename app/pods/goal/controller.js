@@ -1,6 +1,8 @@
 import Ember from 'ember';
+import BufferedProxy from 'ember-buffered-proxy/proxy';
+import { task, timeout } from 'ember-concurrency';
 
-const { computed, inject } = Ember;
+const { computed, observer, inject } = Ember;
 
 export default Ember.Controller.extend({
   currentTeam: inject.service(),
@@ -16,6 +18,16 @@ export default Ember.Controller.extend({
 
   currentTask: computed('taskController.model', function() {
     return this.get('taskController.model');
+  }),
+
+  data: computed('model', function() {
+    return BufferedProxy.create({
+      content: this.get('model')
+    });
+  }),
+
+  saveOnNameChange: observer('data.name', function() {
+    this.get('_updateGoalName').perform();
   }),
 
   actions: {
@@ -57,5 +69,17 @@ export default Ember.Controller.extend({
         }
       });
     }
-  }
+  },
+
+  _updateGoalName: task(function * (skipTimeout = false) {
+    if (!skipTimeout) {
+      yield timeout(1500);
+    }
+
+    if (this.get('data.name').trim() !== this.get('model.name')) {
+      this.get('data').applyChanges();
+
+      this.get('model').save();
+    }
+  }).restartable()
 });

@@ -3,7 +3,11 @@
 
     <div class="task-top-bar">
       <span class="task-section-header-title">
-        {{model.name}}
+        {{input
+          type='text'
+          placeholder=(t 'templates.goal.name_placeholder')
+          value=data.name
+        }}
       </span>
 
       <div class="flex-auto"></div>

@@ -137,7 +137,7 @@ export default Ember.Controller.extend({
     if (data.get('name').trim() !== model.get('name')) {
       this.get('saveTask').perform();
     }
-  }),
+  }).restartable(),
 
   _updateTaskUser: task(function * (skipTimeout = false) {
     if (!skipTimeout) {
@@ -150,5 +150,5 @@ export default Ember.Controller.extend({
     if (data.get('user') !== model.get('user')) {
       this.get('saveTask').perform();
     }
-  })
+  }).restartable()
 });
