@@ -36,6 +36,9 @@ templates:
   first-project:
     title: "Crea un primer projecte per a l'equip"
 
+dependency_decorator:
+  task_position: "Tasca {position}"
+
 errors:
   description: ""
   inclusion: "{description} no està inclòs a la llista"

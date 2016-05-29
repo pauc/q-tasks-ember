@@ -20,6 +20,22 @@ export default Ember.Route.extend({
       controller.forceSync();
 
       return this._super(...arguments);
+    },
+
+    addDependency(dependency) {
+      const task = this.get('currentModel');
+
+      task.get('dependencies').pushObject(dependency);
+
+      task.save();
+    },
+
+    removeDependency(dependency) {
+      const task = this.get('currentModel');
+
+      task.get('dependencies').removeObject(dependency);
+
+      task.save();
     }
   }
 });

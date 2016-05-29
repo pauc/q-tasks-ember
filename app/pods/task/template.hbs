@@ -41,4 +41,33 @@
     </div>
     <button type="button" onclick={{action 'enableDescriptionEdit'}} class="button">Edit description</button>
   {{/if}}
+
+  <div class="dependencies">
+    <h2>Depends on:</h2>
+
+    {{#each dependencies as |dependency|}}
+      <div>
+        {{dependency.text}}
+        <button type="button" onclick={{route-action 'removeDependency' dependency.task}}>
+          X
+        </button>
+      </div>
+    {{/each}}
+
+    {{#if elegibleDependencies}}
+      {{#basic-dropdown
+        renderInPlace=true as |dropdown|
+      }}
+        {{#each elegibleDependencies as |dependency|}}
+          <div id="dependency-{{dependency.task.id}}" onclick={{action 'addDependency' dependency dropdown}}>
+            <button type="button">
+              {{dependency.text}}
+            </button>
+          </div>
+        {{/each}}
+      {{else}}
+        Add dependency
+      {{/basic-dropdown}}
+    {{/if}}
+  </div>
 </div>
