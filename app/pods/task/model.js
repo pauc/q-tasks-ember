@@ -1,6 +1,6 @@
-import DS from 'ember-data';
-
-const { Model, attr, belongsTo, hasMany } = DS;
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+import { hasMany, belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
   name:                attr('string'),
@@ -11,5 +11,6 @@ export default Model.extend({
   goal: belongsTo('goal', { inverse: 'tasks' }),
   user: belongsTo('user', { inverse: false }),
 
-  dependencies: hasMany('task', { inverse: false})
+  dependencies: hasMany('task', { inverse: false }),
+  comments:     hasMany('comments', { inverse: 'task' })
 });

@@ -36,6 +36,15 @@ export default Ember.Route.extend({
       task.get('dependencies').removeObject(dependency);
 
       task.save();
+    },
+
+    saveComment(body) {
+      const comment = this.store.createRecord('comment', {
+        task:         this.get('currentModel'),
+        bodyMarkdown: body
+      });
+
+      comment.save();
     }
   }
 });

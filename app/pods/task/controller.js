@@ -85,6 +85,10 @@ export default Ember.Controller.extend({
     });
   }),
 
+  commentsSortingProperties: ['createdAt:desc'],
+
+  comments: computed.sort('model.comments.[]', 'commentsSortingProperties'),
+
   actions: {
     assignUser(user) {
       const buffer = this.get('data');

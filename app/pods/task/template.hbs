@@ -70,4 +70,20 @@
       {{/basic-dropdown}}
     {{/if}}
   </div>
+
+  <div class="comments">
+    <h2>
+      {{capitalize (t 'models.comment.other')}}:
+    </h2>
+
+    {{#each comments as |comment|}}
+      {{task-comment
+        model=comment
+      }}
+    {{/each}}
+
+    {{comment-form
+      action=(route-action 'saveComment')
+    }}
+  </div>
 </div>

@@ -8,11 +8,15 @@ authentication:
   error: "Ha fallat l'autenticació. Assegurat que el correu i la contrasenya són correctes."
 
 models:
+  comment:
+    one: "comentari"
+    other: "comentaris"
   project:
     one: "projecte"
     other: "projectes"
   task:
     one: "tasca"
+    other: "tasques"
 
   attributes:
     defaults: &attribute_defaults
@@ -29,6 +33,9 @@ models:
       unnamed: "sense títol"
 
 templates:
+  comment_form:
+    body_placeholder: "Escriu un comentari (pots usar markdown)"
+    save: "enviar"
   new_project:
       title: "Projecte nou"
   first-goal:

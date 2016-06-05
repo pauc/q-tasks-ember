@@ -4,7 +4,8 @@ moduleForModel('task', 'Unit | Model | task', {
   // Specify the other units that are required for this test.
   needs: [
     'model:goal',
-    'model:user'
+    'model:user',
+    'model:comment'
   ]
 });
 
