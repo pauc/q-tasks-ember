@@ -24,15 +24,41 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.button{
+.btn{
   border: 0;
   border-radius: 2px;
   background-color: #0091EB;
   color: white;
-  height: 67px;
-  padding: 0 12px;
+  height: 38px;
+  padding: 0 14px;
   cursor: pointer;
-  width: 100%;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 38px;
+  transition: .6s;
+
+  &:hover {
+    background-color: color(#0091EB tint(12%));
+    transition: .2s;
+  }
+}
+
+.btn-light {
+  background-color: #E5E9EC;
+  color: inherit;
+
+  &:hover {
+    background-color: color(#E5E9EC tint(50%));
+  }
+}
+
+.btn-clear {
+  background-color: transparent;
+  color: inherit;
+
+  &:hover {
+    background-color: #E5E9EC;
+  }
 }
 
 button {
@@ -49,8 +75,13 @@ button {
 
 .input-group {
   position: relative;
+
+  & + .btn {
+    margin-top: 10px;
+  }
 }
-.input-group-label {
+.input-group-label,
+.input-group-title {
   display: block;
   margin-bottom: 5px;
   position: absolute;
@@ -68,12 +99,16 @@ button {
 }
 
 .login-wrapper {
-  max-width: 500px;
+  width: 500px;
   margin: 0 auto;
   background-color: white;
   padding: 60px;
   border-radius: 2px;
   box-shadow: 0 2px 5px #D5DBE0, 0 5px 80px #D5DBE0;
+}
+
+.input-group-col {
+  margin-bottom: 20px;
 }
 
 .input-group-col .input-group:not(:first-child) .input-group-field {
@@ -116,4 +151,26 @@ button {
   margin-bottom: 10px;
   border-radius: 3px;
   padding: 10px;
+}
+
+.depdency-dropdown {
+  margin-bottom: 10px;
+}
+
+.dependency {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 40px;
+  background-color: #E5E9EC;
+}
+
+.dependency-task-title {
+  margin-right: 13px;
+}
+
+.dependency-action {
+  svg {
+    display: block;
+  }
 }

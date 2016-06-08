@@ -2,27 +2,34 @@
   <div class="main-section-header">
 
     <div class="task-top-bar">
-      <span class="task-section-header-title">
+      <div class="task-section-header-title">
         {{input
           type='text'
           placeholder=(t 'templates.goal.name_placeholder')
           value=data.name
+          class='task-section-header-title-field'
         }}
-      </span>
+      </div>
 
       <div class="flex-auto"></div>
 
       <div class="task-top-bar-btn">
-        <span>Mode</span>
+        <button type="button"
+          class="btn btn-clear {{if showTaskNames 'active'}}" 
+          onclick={{action 'toggleShowTaskNames'}}>
+          Mostrar titulos
+        </button>
       </div>
       <div class="task-top-bar-btn">
-        <span>Delete</span>
+        <button type="button" class="btn btn-clear">
+          Delete
+        </button>
       </div>
       <div class="task-top-bar-btn">
         <button
           type="button"
           onclick={{action 'toggleFilesPanel'}}
-          class="button {{if filesPanelIsVisible 'active'}}">
+          class="btn btn-clear {{if filesPanelIsVisible 'active'}}">
           Files
         </button>
       </div>
@@ -33,6 +40,7 @@
       tasks=tasks
       currentTask=currentTask
       action=(route-action 'reorderTasks')
+      showTaskNames=showTaskNames
     }}
   </div>
 

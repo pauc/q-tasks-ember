@@ -10,6 +10,8 @@ export default Ember.Controller.extend({
   store:       inject.service(),
   taskController: inject.controller('task'),
 
+  showTaskNames: false,
+
   uploadFileUrl: computed(function() {
     return `/${this.get('currentTeam.id')}/attachments`;
   }),
@@ -31,6 +33,10 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
+    toggleShowTaskNames() {
+      this.toggleProperty('showTaskNames');
+    },
+
     toggleFilesPanel() {
       if (this.get('filesPanelIsVisible')) {
         this.get('actions.closeFilesPanel').apply(this);

@@ -21,16 +21,6 @@ export default Ember.Component.extend({
     dragStopped() {
       console.log("Drag ends");
       this.set('isDragging', false);
-    },
-
-    showTaskNames() {
-      this.set('showTaskNames', true);
-      this.set('showUserNames', false);
-    },
-
-    showUserNames() {
-      this.set('showTaskNames', false);
-      this.set('showUserNames', true);
     }
   }
 });

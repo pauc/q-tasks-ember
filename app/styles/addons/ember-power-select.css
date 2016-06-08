@@ -27,7 +27,8 @@
 .ember-power-select *, .ember-power-select-dropdown * {
   box-sizing: border-box; }
 
-.ember-power-select-trigger {
+.ember-power-select-trigger,
+.ember-basic-dropdown-trigger {
   @extend .dropdown;
 }
 

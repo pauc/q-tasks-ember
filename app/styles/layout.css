@@ -4,7 +4,7 @@
 }
 
 .sidebar {
-  width: 27%;
+  width: 360px;
   flex-shrink: 0;
   padding: 20px 30px 30px 30px;
   height: 100vh;
@@ -32,6 +32,17 @@
 .task-section-header-title {
   font-size: 24px;
   display: block;
+  width: 100%;
+}
+
+.task-section-header-title-field {
+  margin-left: -12px;
+  border: 0;
+  background-color: transparent;
+
+  &:focus {
+    background-color: rgba(0,0,0,.05)
+  }
 }
 
 .task-top-bar {
@@ -43,7 +54,13 @@
 }
 
 .task-top-bar-btn {
-  margin-left: 20px;
+  margin-left: 3px;
+
+  .btn {
+    &.active {
+      background-color: #E5E9EC;
+    }
+  }
 }
 
 .main-section-body {
@@ -56,7 +73,7 @@
 .files-panel {
   background-color: #F2F4F5;
   border-left: 1px solid #E5E9EC;
-  width: 25%;
+  width: 260px;
   flex-shrink: 0;
   overflow: hidden;
   height: 100vh;

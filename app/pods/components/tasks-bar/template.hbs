@@ -1,42 +1,27 @@
-{{!-- <div>
-  <button type="button" onclick={{action 'showUserNames'}} class={{if showUserNames "active"}}>
-    Show user names
-  </button>
-  |
-  <button type="button" onclick={{action 'showTaskNames'}} class={{if showTaskNames "active"}}>
-    Show task names
-  </button>
-</div> --}}
-
-{{#perfect-scroll wheelSpeed=2}}
-
-  {{#sortable-group class="sortable-items"
-    tagName="div"
-    model=model
-    onChange="reorderTasks"
-    direction="x" as |group|
-  }}
-    {{#each tasks as |item index|}}
-      {{#sortable-item
-        tagName="div"
+{{#sortable-group class="sortable-items"
+  tagName="div"
+  model=model
+  onChange="reorderTasks"
+  direction="x" as |group|
+}}
+  {{#each tasks as |item index|}}
+    {{#sortable-item
+      tagName="div"
+      model=item
+      group=group
+      onDragStart="dragStarted"
+      onDragStop="dragStopped"
+      handle=".handle"
+    }}
+      {{tasks-bar-item
         model=item
-        group=group
-        onDragStart="dragStarted"
-        onDragStop="dragStopped"
-        handle=".handle"
+        index=index
+        currentTask=currentTask
+        showTaskName=showTaskNames
+        insertAt=(route-action 'insertAt')
+        action=(route-action 'goToTask')
       }}
-        {{tasks-bar-item
-          model=item
-          index=index
-          currentTask=currentTask
-          showTaskName=showTaskNames
-          showUserName=showUserNames
-          insertAt=(route-action 'insertAt')
-          action=(route-action 'goToTask')
-        }}
-      {{/sortable-item}}
-    {{/each}}
-  {{/sortable-group}}
-
-{{/perfect-scroll}}
+    {{/sortable-item}}
+  {{/each}}
+{{/sortable-group}}
 

@@ -39,7 +39,7 @@ templates:
   new_project:
       title: "Projecte nou"
   first-goal:
-    title: "Crea el primer objectiu del projecte \"{projectName}\""
+    title: "Crea el primer objectiu del projecte"
   first-project:
     title: "Crea un primer projecte per a l'equip"
 

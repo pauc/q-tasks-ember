@@ -1,6 +1,13 @@
-<form onsubmit={{route-action 'goToTeam' teamSubdomain}}>
-  <label for="team-subdomain">Q-Tasks domain</label>
-  {{input id="team-subdomain" value=teamSubdomain placeholder="teamdomain"}}
+<div class="login-wrapper self-center">
+  <form onsubmit={{route-action 'goToTeam' teamSubdomain}}>
 
-  <button type="submit">Continue</button>
-</form>
+    <div class="input-group-col">
+      <div class="input-group">
+        {{input id="team-subdomain" value=teamSubdomain placeholder="teamdomain" class="input-group-field"}}
+        <label for="team-subdomain" class="input-group-label">Q-Tasks domain</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn">Continue</button>
+  </form>
+</div>

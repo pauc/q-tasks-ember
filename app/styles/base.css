@@ -2,3 +2,7 @@ a {
   color: $blue;
   text-decoration: none;
 }
+
+.as-h2 {
+  font-size: 20px;
+}

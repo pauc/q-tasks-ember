@@ -1,4 +1,4 @@
-<div class="login-wrapper">
+<div class="login-wrapper self-center">
   {{#unless session.isAuthenticated}}
     <form onsubmit={{route-action 'authenticate' identification password}}>
       <div class="input-group-col">
@@ -12,8 +12,8 @@
           <label for="password" class="input-group-label">Password</label>
         </div>
       </div>
-      <br>
-      <button type="submit" class="button">Let's go do some tasks</button>
+      
+      <button type="submit" class="btn">Let's go do some tasks</button>
 
     </form>
     {{#if errorMessage}}

@@ -1,7 +1,12 @@
 <div class="files-panel-header">
   <div class="flex">
-    <h2 class="files-panel-title">Files</h2>
-    <button type="button" onclick={{close}}>X</button>
+    <div class="flex-auto">
+      <div class="as-h2">Files</div>
+    </div>
+
+    <button type="button" onclick={{close}}>
+      {{inline-svg "assets/images/icons/cross.svg"}}
+    </button>
   </div>
 
   {{yield}}
@@ -18,7 +23,9 @@
           {{/if}}
           {{attachment.fileName}}
         </a>
-        <button type="button" onclick={{action 'deleteAttachment' attachment}}>X</button>
+        <button type="button" onclick={{action 'deleteAttachment' attachment}}>
+          {{inline-svg "assets/images/icons/cross.svg"}}
+        </button>
       </div>
     {{/each}}
   </div>

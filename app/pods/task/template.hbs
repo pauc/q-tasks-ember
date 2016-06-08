@@ -5,16 +5,65 @@
     {{/if}}
   </div>
 
-  <div class="task-worker-select">
-    {{#power-select
-      searchEnabled=false
-      options=users
-      selected=data.user
-      placeholder=(t 'models.attributes.task.unassigned')
-      onchange=(action 'assignUser') as |user|
-    }}
-      {{user.username}}
-    {{/power-select}}
+  <div class="flex mb3">
+    <div class="input-group mr2">
+      <div class="mb1">
+        Asignar
+      </div>
+
+      {{#power-select
+        searchEnabled=false
+        options=users
+        selected=data.user
+        placeholder=(t 'models.attributes.task.unassigned')
+        onchange=(action 'assignUser') as |user|
+      }}
+        {{user.username}}
+      {{/power-select}}
+    </div>
+
+    <div class="input-group">
+      <div class="mb1">
+        <div class="dependencies">
+          <div class="mb1">Dependencias:</div>
+
+          <div class="flex">
+          
+            {{#if elegibleDependencies}}
+              {{#basic-dropdown
+                class='depdency-dropdown mr1'
+                renderInPlace=true as |dropdown|
+              }}
+                {{#each elegibleDependencies as |dependency|}}
+                  <div id="dependency-{{dependency.task.id}}" onclick={{action 'addDependency' dependency dropdown}} class="dropdown-menu-item">
+                    <button type="button">
+                      {{dependency.text}}
+                    </button>
+                  </div>
+                {{/each}}
+              {{else}}
+                Add dependency
+              {{/basic-dropdown}}
+            {{/if}}
+
+            <div class="dependencies">
+              {{#each dependencies as |dependency|}}
+                <div class="dependency">
+                  <div class="dependency-task-title">
+                    {{dependency.text}}
+                  </div>
+                  <button type="button" onclick={{route-action 'removeDependency' dependency.task}} class="dependency-action">
+                    {{inline-svg "assets/images/icons/cross.svg"}}
+                  </button>
+                </div>
+              {{/each}}
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 
   {{input
@@ -42,36 +91,7 @@
     <button type="button" onclick={{action 'enableDescriptionEdit'}} class="button">Edit description</button>
   {{/if}}
 
-  <div class="dependencies">
-    <h2>Depends on:</h2>
-
-    {{#each dependencies as |dependency|}}
-      <div>
-        {{dependency.text}}
-        <button type="button" onclick={{route-action 'removeDependency' dependency.task}}>
-          X
-        </button>
-      </div>
-    {{/each}}
-
-    {{#if elegibleDependencies}}
-      {{#basic-dropdown
-        renderInPlace=true as |dropdown|
-      }}
-        {{#each elegibleDependencies as |dependency|}}
-          <div id="dependency-{{dependency.task.id}}" onclick={{action 'addDependency' dependency dropdown}}>
-            <button type="button">
-              {{dependency.text}}
-            </button>
-          </div>
-        {{/each}}
-      {{else}}
-        Add dependency
-      {{/basic-dropdown}}
-    {{/if}}
-  </div>
-
-  <div class="comments">
+  {{!-- <div class="comments">
     <h2>
       {{capitalize (t 'models.comment.other')}}:
     </h2>
@@ -85,5 +105,5 @@
     {{comment-form
       action=(route-action 'saveComment')
     }}
-  </div>
+  </div> --}}
 </div>

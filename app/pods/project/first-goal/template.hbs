@@ -1,6 +1,9 @@
-<h2>{{t 'templates.first-goal.title' projectName=model.project.name}}</h2>
+<div class="pl3 pt3">
+  <div class="as-h2">{{model.project.name}}</div>
+  <div class="mb2">{{t 'templates.first-goal.title'}}</div>
 
-{{goal-form
-  model=model
-  action=(route-action 'saveGoal' model)
-}}
+  {{goal-form
+    model=model
+    action=(route-action 'saveGoal' model)
+  }}
+</div>
