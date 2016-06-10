@@ -15,6 +15,10 @@ export default Ember.Route.extend({
 
   actions: {
     willTransition() {
+      if (this.modelFor('goal').get('isDeleted')) {
+        return;
+      }
+
       const controller = this.get('controller');
 
       controller.forceSync();

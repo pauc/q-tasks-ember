@@ -138,7 +138,7 @@ export default Ember.Controller.extend({
     const data  = this.get('data'),
           model = this.get('model');
 
-    if (data.get('name').trim() !== model.get('name')) {
+    if ((data.get('name') || '').trim() !== model.get('name')) {
       this.get('saveTask').perform();
     }
   }).restartable(),

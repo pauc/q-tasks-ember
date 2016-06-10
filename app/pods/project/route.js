@@ -9,23 +9,6 @@ export default Ember.Route.extend({
     return this.store.findRecord('project', params.project_id, { include: 'goals' });
   },
 
-  redirect(model, transition) {
-    if (transition.targetName !== `${this.routeName}.index`) {
-      return;
-    }
-
-    const goals = model.get('goals');
-
-    if (goals.get('length')) {
-      const currentGoalId = this.get('currentUser.currentGoalId') ||
-        goals.get('firstObject.id');
-
-      this.transitionTo('goal', currentGoalId);
-    } else {
-      this.transitionTo('project.first-goal');
-    }
-  },
-
   renderTemplate() {
     this.render();
 

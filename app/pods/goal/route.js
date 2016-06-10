@@ -28,6 +28,14 @@ export default Ember.Route.extend({
     });
   }).drop(),
 
+  deleteGoalTask: task(function * () {
+    const goal = this.get('currentModel');
+
+    yield goal.destroyRecord();
+
+    this.transitionTo('project');
+  }).drop(),
+
   actions: {
     reorderTasks(goal, tasks, movedTask) {
       this.set('controller.tasks', tasks);
@@ -60,6 +68,10 @@ export default Ember.Route.extend({
     toggleTaskDone(task) {
       task.toggleProperty('done');
       task.save();
+    },
+
+    deleteGoal() {
+      this.get('deleteGoalTask').perform();
     }
   }
 });
