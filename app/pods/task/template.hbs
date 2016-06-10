@@ -22,48 +22,48 @@
       {{/power-select}}
     </div>
 
-    <div class="input-group">
-      <div class="mb1">
-        <div class="dependencies">
-          <div class="mb1">Dependencias:</div>
+    {{#if showDependencies}}
+      <div class="input-group">
+        <div class="mb1">
+          <div class="dependencies">
+            <div class="mb1">Dependencias:</div>
 
-          <div class="flex">
-          
-            {{#if elegibleDependencies}}
-              {{#basic-dropdown
-                class='depdency-dropdown mr1'
-                renderInPlace=true as |dropdown|
-              }}
-                {{#each elegibleDependencies as |dependency|}}
-                  <div id="dependency-{{dependency.task.id}}" onclick={{action 'addDependency' dependency dropdown}} class="dropdown-menu-item">
-                    <button type="button">
+            <div class="flex">
+
+              {{#if elegibleDependencies}}
+                {{#basic-dropdown
+                  class='depdency-dropdown mr1'
+                  renderInPlace=true as |dropdown|
+                }}
+                  {{#each elegibleDependencies as |dependency|}}
+                    <div id="dependency-{{dependency.task.id}}" onclick={{action 'addDependency' dependency dropdown}} class="dropdown-menu-item">
+                      <button type="button">
+                        {{dependency.text}}
+                      </button>
+                    </div>
+                  {{/each}}
+                {{else}}
+                  Add dependency
+                {{/basic-dropdown}}
+              {{/if}}
+
+              <div class="dependencies">
+                {{#each dependencies as |dependency|}}
+                  <div class="dependency">
+                    <div class="dependency-task-title">
                       {{dependency.text}}
+                    </div>
+                    <button type="button" onclick={{route-action 'removeDependency' dependency.task}} class="dependency-action">
+                      {{inline-svg "assets/images/icons/cross.svg"}}
                     </button>
                   </div>
                 {{/each}}
-              {{else}}
-                Add dependency
-              {{/basic-dropdown}}
-            {{/if}}
-
-            <div class="dependencies">
-              {{#each dependencies as |dependency|}}
-                <div class="dependency">
-                  <div class="dependency-task-title">
-                    {{dependency.text}}
-                  </div>
-                  <button type="button" onclick={{route-action 'removeDependency' dependency.task}} class="dependency-action">
-                    {{inline-svg "assets/images/icons/cross.svg"}}
-                  </button>
-                </div>
-              {{/each}}
+              </div>
             </div>
-
           </div>
-
         </div>
       </div>
-    </div>
+    {{/if}}
   </div>
 
   {{input

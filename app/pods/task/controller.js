@@ -85,6 +85,10 @@ export default Ember.Controller.extend({
     });
   }),
 
+  showDependencies: computed('dependencies.[]', 'elegibleDependencies.[]', function() {
+    return this.get('dependencies.length') + this.get('elegibleDependencies.length') > 0;
+  }),
+
   commentsSortingProperties: ['createdAt:desc'],
 
   comments: computed.sort('model.comments.[]', 'commentsSortingProperties'),
