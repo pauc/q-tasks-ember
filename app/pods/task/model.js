@@ -7,6 +7,7 @@ export default Model.extend({
   position:            attr('number'),
   descriptionMarkdown: attr('string'),
   descriptionHtml:     attr('string'),
+  done:                attr('boolean'),
 
   goal: belongsTo('goal', { inverse: 'tasks' }),
   user: belongsTo('user', { inverse: false }),

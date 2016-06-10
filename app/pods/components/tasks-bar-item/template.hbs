@@ -9,12 +9,16 @@
 
 <div class="assignment-box {{if active 'active'}}">
 
-  <div class="checkbox">
-    <input id={{checkboxId}} type="checkbox" class="checkbox-input">
+  <div class="checkbox" onclick={{route-action 'toggleTaskDone' model}}>
+      {{input
+        type="checkbox"
+        name=checkboxId
+        checked=model.done
+        class="checkbox-input"
+      }}
     <label for={{checkboxId}} class="checkbox-label"></label>
   </div>
 
-  
   <a onclick={{route-action "goToTask" model}}>
     <div class="assignment-box-worker-name">{{assignedTo}}</div>
 

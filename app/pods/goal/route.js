@@ -55,6 +55,11 @@ export default Ember.Route.extend({
 
     deleteAttachment(attachment) {
       attachment.destroyRecord();
+    },
+
+    toggleTaskDone(task) {
+      task.toggleProperty('done');
+      task.save();
     }
   }
 });
