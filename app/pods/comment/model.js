@@ -7,5 +7,6 @@ export default Model.extend({
   bodyHtml:     attr('string'),
   createdAt:    attr('date'),
 
-  task: belongsTo('task', { inverse: 'comments' })
+  task:   belongsTo('task', { inverse: 'comments' }),
+  author: belongsTo('user', { inverse: false })
 });

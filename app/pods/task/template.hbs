@@ -91,19 +91,19 @@
     <button type="button" onclick={{action 'enableDescriptionEdit'}} class="button">Edit description</button>
   {{/if}}
 
-  {{!-- <div class="comments">
+  <div class="comments">
     <h2>
       {{capitalize (t 'models.comment.other')}}:
     </h2>
 
     {{#each comments as |comment|}}
       {{task-comment
-        model=comment
+        comment=comment
       }}
     {{/each}}
 
     {{comment-form
       action=(route-action 'saveComment')
     }}
-  </div> --}}
+  </div>
 </div>
