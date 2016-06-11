@@ -9,7 +9,9 @@ export default Component.extend({
   sortedAttachments: computed.sort('model.attachments', 'sortDefinition'),
 
   actions: {
-    deleteAttachment(attachment) {
+    deleteAttachment(attachment, event) {
+      event.preventDefault();
+      event.stopPropagation();
       this.get('deleteAttachment')(attachment);
     }
   }

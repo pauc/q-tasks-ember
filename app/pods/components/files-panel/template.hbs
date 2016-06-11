@@ -16,20 +16,22 @@
   <div class="attachments">
     {{#each sortedAttachments as |attachment|}}
       <div class="attachment">
-        {{!-- <button type="button" onclick={{action 'deleteAttachment' attachment}}>
-          {{inline-svg "assets/images/icons/cross.svg"}}
-        </button> --}}
 
-        <a href={{attachment.fileUrl}} target="_blank" class="attachment-link">
+        <a href={{attachment.fileUrl}} target="_blank" class="attachment-link clearfix">
           <div class="attachment-file">
             {{#if attachment.isImage}}
               <img src="{{attachment.thumbUrl}}">
             {{/if}}
           </div>
-          
+
           <div class="attachment-name">
             {{attachment.fileName}}
+
           </div>
+
+          <button type="button" onclick={{action 'deleteAttachment' attachment}} class="action-delete-attachment">
+            {{inline-svg "assets/images/icons/cross.svg"}}
+          </button>
         </a>
       </div>
     {{/each}}

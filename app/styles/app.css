@@ -155,16 +155,24 @@ button {
 .attachment-link {
   display: block;
   color: inherit;
+
+  .action-delete-attachment {
+    float: right;
+    margin: 1rem 1rem 0 0;
+  }
 }
 
 .attachment-name {
-  border-top: 1px solid rgba(0,0,0,.1);
+  max-width: 80%;
   padding: 10px;
+  float: left;
 }
 
 .attachment-file {
   img {
     display: block;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,.1);
   }
 }
 
