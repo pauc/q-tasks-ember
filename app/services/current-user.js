@@ -16,7 +16,7 @@ const CurrentUser = Ember.ObjectProxy.extend({
     },
 
     set(key, value) {
-      if (this.get('session.data.currentProjectId') != value) {
+      if (this.get('session.data.currentProjectId') !== value) {
         this.get('session').set('data.currentProjectId', value);
         this.get('session').set('data.currentGoalId', null);
         this.get('session').set('data.currentTaskId', null);
@@ -31,7 +31,7 @@ const CurrentUser = Ember.ObjectProxy.extend({
     },
 
     set(key, value) {
-      if (this.get('session.data.currentGoalId') != value) {
+      if (this.get('session.data.currentGoalId') !== value) {
         this.get('session').set('data.currentGoalId', value);
         this.get('session').set('data.currentTaskId', null);
         return value;
@@ -45,7 +45,7 @@ const CurrentUser = Ember.ObjectProxy.extend({
     },
 
     set(key, value) {
-      if (this.get('session.data.currentTaskId') != value) {
+      if (this.get('session.data.currentTaskId') !== value) {
         this.get('session').set('data.currentTaskId', value);
         return value;
       }
