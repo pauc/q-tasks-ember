@@ -1,7 +1,5 @@
 textarea.assignment-description-field,
 .comment-form-body.ember-text-area {
-  padding: 2px;
-  border: 1px dashed #DDD;
   overflow: hidden;
 }
 

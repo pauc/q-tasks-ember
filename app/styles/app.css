@@ -73,31 +73,6 @@ button {
   }
 }
 
-.input-group {
-  position: relative;
-
-  & + .btn {
-    margin-top: 10px;
-  }
-}
-.input-group-label,
-.input-group-title {
-  display: block;
-  margin-bottom: 5px;
-  position: absolute;
-  top: 10px;
-  left: 14px;
-  font-size: 14px;
-  letter-spacing: .05em;
-}
-.input-group-field:focus + .input-group-label {
-  color: #0091EB;
-}
-.input-group-field {
-  padding-top: 30px;
-  padding-bottom: 8px;
-}
-
 .login-wrapper {
   width: 500px;
   margin: 0 auto;
@@ -105,20 +80,6 @@ button {
   padding: 60px;
   border-radius: 2px;
   box-shadow: 0 2px 5px #D5DBE0, 0 5px 80px #D5DBE0;
-}
-
-.input-group-col {
-  margin-bottom: 20px;
-}
-
-.input-group-col .input-group:not(:first-child) .input-group-field {
-  border-top: 0;
-}
-.input-group-col .input-group:first-child .input-group-field {
-  border-radius: 2px 2px 0 0;
-}
-.input-group-col .input-group:last-child .input-group-field {
-  border-radius: 0 0 2px 2px;
 }
 
 .task-title {
