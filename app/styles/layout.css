@@ -73,7 +73,7 @@
 .files-panel {
   background-color: #F2F4F5;
   border-left: 1px solid #E5E9EC;
-  width: 260px;
+  width: 230px;
   flex-shrink: 0;
   overflow: hidden;
   height: 100vh;
@@ -108,5 +108,5 @@
 
 .logo {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
 }

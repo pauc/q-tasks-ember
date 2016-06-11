@@ -5,7 +5,7 @@
     {{/if}}
   </div>
 
-  <div class="flex mb3">
+  <div class="flex mb1">
     <div class="input-group mr2">
       <div class="mb1">
         {{capitalize (t 'actions.assign')}}
@@ -60,7 +60,7 @@
                       <span class="done-symbol"></span>
                     {{/if}}
 
-                    <button type="button" onclick={{route-action 'removeDependency' dependency.task}} class="dependency-action">
+                    <button type="button" onclick={{route-action 'removeDependency' dependency.task}} class="dependency-action" class="btn btn-light">
                       {{inline-svg "assets/images/icons/cross.svg"}}
                     </button>
                   </div>
@@ -73,37 +73,41 @@
     {{/if}}
   </div>
 
-  {{input
-    type="text"
-    placeholder=(t 'models.attributes.task.name')
-    class="assignment-title-field"
-    autofocus=true
-    value=data.name
-  }}
-
-  {{#if showDescriptionTextarea}}
-    {{autosize-textarea
-      placeholder=(capitalize (t 'models.attributes.task.description'))
-      class="assignment-description-field"
-      value=data.descriptionMarkdown
-      focusOut=(action 'disableDescriptionEdit')
-      change=(action 'updateDescription' value='target.value')
-      keyDown=(action 'enableDescriptionEdit')
-    }}
-    <button type="button" onclick={{action 'disableDescriptionEdit'}} class="button">
-      {{capitalize (t 'actions.simple_save')}}
-    </button>
-  {{else}}
-    <div class="assignment-description" ondblclick={{action 'enableDescriptionEdit'}}>
-      {{{data.descriptionHtml}}}
+  <div class="mb3 pb3 border-bottom mt2 pt2 border-top">
+    <div class="assignment-title">
+      {{input
+        type="text"
+        placeholder=(t 'models.attributes.task.name')
+        class="assignment-title-field"
+        autofocus=true
+        value=data.name
+      }}
     </div>
-    <button type="button" onclick={{action 'enableDescriptionEdit'}} class="button">
-      {{capitalize (t 'templates.task.edit_description')}}
-    </button>
-  {{/if}}
+
+    {{#if showDescriptionTextarea}}
+      {{autosize-textarea
+        placeholder=(capitalize (t 'models.attributes.task.description'))
+        class="assignment-description-field"
+        value=data.descriptionMarkdown
+        focusOut=(action 'disableDescriptionEdit')
+        change=(action 'updateDescription' value='target.value')
+        keyDown=(action 'enableDescriptionEdit')
+      }}
+      <button type="button" onclick={{action 'disableDescriptionEdit'}} class="btn btn-light">
+        {{capitalize (t 'actions.simple_save')}}
+      </button>
+    {{else}}
+      <div class="assignment-description" ondblclick={{action 'enableDescriptionEdit'}}>
+        {{{data.descriptionHtml}}}
+      </div>
+      <button type="button" onclick={{action 'enableDescriptionEdit'}} class="btn btn-light">
+        {{capitalize (t 'templates.task.edit_description')}}
+      </button>
+    {{/if}}
+  </div>
 
   <div class="comments">
-    <div class="as-h3">
+    <div class="as-h3 mb2">
       {{capitalize (t 'models.comment.other')}}:
     </div>
 

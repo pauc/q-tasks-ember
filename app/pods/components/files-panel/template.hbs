@@ -26,14 +26,15 @@
             {{/if}}
           </div>
 
-          <div class="attachment-name">
-            {{attachment.fileName}}
+          <div class="flex items-center">
+            <div class="attachment-name flex-auto truncate">
+              {{attachment.fileName}}
+            </div>
 
+            <button type="button" onclick={{action 'deleteAttachment' attachment}} class="attachment-button">
+              {{inline-svg "assets/images/icons/cross.svg"}}
+            </button>
           </div>
-
-          <button type="button" onclick={{action 'deleteAttachment' attachment}} class="action-delete-attachment">
-            {{inline-svg "assets/images/icons/cross.svg"}}
-          </button>
         </a>
       </div>
     {{/each}}

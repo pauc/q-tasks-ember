@@ -1,15 +1,18 @@
-::-webkit-input-placeholder { color: #aaa }
-:-moz-placeholder { color: #aaa }
-::-moz-placeholder { color: #aaa }
-:-ms-input-placeholder { color: #aaa }
+::-webkit-input-placeholder { color: #5F6467 }
+:-moz-placeholder { color: #5F6467 }
+::-moz-placeholder { color: #5F6467 }
+:-ms-input-placeholder { color: #5F6467 }
 
 input,
 textarea {
   color: inherit;
-  min-height: 38px;
-  width: 100%;
   padding: 0 12px;
   border-radius: 2px;
+  width: 100%;
+}
+
+.input-group-field {
+  min-height: 38px;
   border: 2px solid rgba(0,0,0,.14);
   font-size: 20px;
   transition: .6s;

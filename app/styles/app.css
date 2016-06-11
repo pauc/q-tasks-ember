@@ -7,7 +7,18 @@
 @import 'small-task';
 @import 'tasks-bar';
 @import 'addons/ember-power-select';
-@import 'basscss';
+
+@import 'basscss/align';
+@import 'basscss/border';
+@import 'basscss/flexbox';
+@import 'basscss/grid';
+@import 'basscss/hide';
+@import 'basscss/layout';
+@import 'basscss/margin';
+@import 'basscss/padding';
+@import 'basscss/position';
+@import 'basscss/type-scale';
+@import 'basscss/typography';
 
 @import 'provisional'; /* TODO: Remove-it */
 
@@ -71,6 +82,10 @@ button {
   &:focus {
     outline: 0;
   }
+
+  svg {
+    display: block;
+  }
 }
 
 .login-wrapper {
@@ -94,17 +109,21 @@ button {
   margin-bottom: 20px;
 }
 
+.assignment-title {
+  margin-bottom: 20px;
+}
+
 .assignment-title-field {
   font-size: 20px;
   padding: 0;
   border: 0;
-  margin-bottom: 10px;
 }
 
-.assignment-description-field {
-  padding: 0;
+.assignment-description-field,
+.comment-form-body {
+  padding-top: 8px;
+  background-color: $baltic-2;
   border: 0;
-  font-size: 14px;
 }
 
 .attachment {
@@ -116,18 +135,15 @@ button {
 .attachment-link {
   display: block;
   color: inherit;
-
-  .action-delete-attachment {
-    float: right;
-    margin: 1rem 1rem 0 0;
-  }
 }
 
 .attachment-name {
-  max-width: 80%;
   padding: 10px;
-  float: left;
 }
+
+.attachment-button{
+  padding: 10px;
+} 
 
 .attachment-file {
   img {
