@@ -14,5 +14,7 @@ export default Component.extend({
 
   save: task(function * () {
     yield this.get('action')(this.get('body'));
+
+    this.$().find('textarea').val('');
   }).drop()
 });

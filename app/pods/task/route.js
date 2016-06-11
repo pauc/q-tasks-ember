@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { task } from 'ember-concurrency';
 
 const { inject } = Ember;
 
@@ -20,6 +21,24 @@ export default Ember.Route.extend({
       controller.set('users', users);
     });
   },
+
+  deleteTaskTask: task(function * (task) {
+    const isLastTask = task.get('goal.tasks.length') === 1;
+
+    if (isLastTask) {
+      yield task.reset();
+    } else {
+      const goal   = task.get('goal');
+      const goalId = goal.get('id');
+
+      yield task.destroyRecord();
+
+      this.set('currentUser.currentTaskId', null);
+
+      this.controllerFor('goal').notifyPropertyChange('model.tasks');
+      this.transitionTo('goal', goalId);
+    }
+  }),
 
   actions: {
     willTransition() {
@@ -57,6 +76,10 @@ export default Ember.Route.extend({
       });
 
       comment.save();
+    },
+
+    deleteTask(task) {
+      this.get('deleteTaskTask').perform(task);
     }
   }
 });

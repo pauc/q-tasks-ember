@@ -32,6 +32,12 @@ export default Ember.Controller.extend({
     this.get('_updateGoalName').perform();
   }),
 
+  tasks: computed('model.tasks.[].{isDeleted,isNew,position}', function() {
+    return this.get('model.tasks').toArray().sortBy('position').filter( (task) => {
+      return !task.get('isNew');
+    });
+  }),
+
   actions: {
     toggleShowTaskNames() {
       this.toggleProperty('showTaskNames');

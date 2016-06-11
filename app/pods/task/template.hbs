@@ -49,7 +49,7 @@
                 {{/basic-dropdown}}
               {{/if}}
 
-              <div class="dependencies">
+              <div class="dependencies mr1">
                 {{#each dependencies as |dependency|}}
                   <div class="dependency">
                     <div class="dependency-task-title">
@@ -71,6 +71,12 @@
         </div>
       </div>
     {{/if}}
+
+    <div class="input-group ml-auto">
+      <button type="button" class="btn btn-clear" onclick={{route-action 'deleteTask' model}}>
+        {{capitalize (t 'actions.delete')}}
+      </button>
+    </div>
   </div>
 
   <div class="mb3 pb3 border-bottom mt2 pt2 border-top">

@@ -14,16 +14,6 @@ export default Ember.Route.extend({
     this.set('currentUser.currentGoalId', model.get('id'));
   },
 
-  setupController(controller, model) {
-    this._super(...arguments);
-
-    const tasks = model.get('tasks').toArray().sortBy('position').filter( (task) => {
-      return !task.get('isNew');
-    });
-
-    controller.set('tasks', tasks);
-  },
-
   insertTaskAt: task(function * (position) {
     const controller = this.get('controller');
 
@@ -31,7 +21,7 @@ export default Ember.Route.extend({
       position: position,
       goal:     this.get('currentModel')
     }).save().then( savedTask => {
-      controller.get('tasks').insertAt(position - 1, savedTask);
+      this.refresh();
       this.transitionTo('task', savedTask.get('id'));
     });
   }).drop(),

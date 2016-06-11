@@ -45,6 +45,10 @@ export default Ember.Controller.extend({
   }),
 
   saveTask: task(function * () {
+    if (this.get('model.isDeleted')) {
+      return;
+    }
+
     const buffer = this.get('data');
 
     this.set('isSaving', true);
@@ -56,15 +60,27 @@ export default Ember.Controller.extend({
   }).restartable(),
 
   saveOnNameChange: observer('data.name', function() {
+    if (this.get('model.isDeleted')) {
+      return;
+    }
+
     this.get('_updateTaskName').perform();
   }),
 
   forceSync() {
+    if (this.get('model.isDeleted')) {
+      return;
+    }
+
     this.get('_updateTaskName').perform(true);
     this.get('_updateTaskUser').perform(true);
   },
 
   dependencies: computed('model.dependencies.[]', function() {
+    if (this.get('model.isDeleted')) {
+      return;
+    }
+
     return this.get('model.dependencies').sortBy('position').map( task => {
       return DependencyDecorator.create({
         container: Ember.getOwner(this),
@@ -74,6 +90,10 @@ export default Ember.Controller.extend({
   }),
 
   elegibleDependencies: computed('model.goal.tasks.[]', 'model.dependencies.[]', function() {
+    if (this.get('model.isDeleted')) {
+      return;
+    }
+
     const currentDependencyIds = this.get('model').hasMany('dependencies').ids();
 
     const tasks = this.get('model.goal.tasks').reject( task => {
