@@ -1,6 +1,10 @@
-<h2>{{t 'templates.first-project.title'}}</h2>
+<div class="login-wrapper self-center">
+  <div class="as-h2">
+    {{t 'templates.first-project.title'}}
+  </div>
 
-{{project-form
-  model=model
-  action=(route-action 'saveProject' model)
-}}
+  {{project-form
+    model=model
+    action=(route-action 'saveProject' model)
+  }}
+</div>

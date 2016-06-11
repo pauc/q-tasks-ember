@@ -10,6 +10,7 @@
   border: 0;
   color: inherit;
   font-weight: inherit;
+  white-space: nowrap;
 
   background-image: url("/assets/images/icons/caret-down.svg");
   background-repeat: no-repeat;
@@ -38,4 +39,10 @@
 .dropdown-menu-item {
   padding: 8px 24px;
   cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    color: $blue;
+    background-color: color($blue tint(90%));
+  }
 }

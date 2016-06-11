@@ -146,11 +146,26 @@ button {
   font-size: 14px;
 }
 
-.files-list-item {
+.attachment {
   background-color: #fff;
   margin-bottom: 10px;
   border-radius: 3px;
+}
+
+.attachment-link {
+  display: block;
+  color: inherit;
+}
+
+.attachment-name {
+  border-top: 1px solid rgba(0,0,0,.1);
   padding: 10px;
+}
+
+.attachment-file {
+  img {
+    display: block;
+  }
 }
 
 .depdency-dropdown {

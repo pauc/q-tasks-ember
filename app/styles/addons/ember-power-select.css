@@ -13,10 +13,8 @@
   -webkit-user-select: none; }
 
 .ember-basic-dropdown-content {
-  position: absolute;
-  width: auto;
   z-index: 1000;
-  width: auto !important;
+  position: absolute;
 
   @extend .dropdown-menu;
 }
@@ -121,8 +119,8 @@
   background-color: #F2F4F5; }
 
 .ember-power-select-option[aria-current="true"] {
-  background-color: $blue;
-  color: #ffffff; }
+  @extend .dropdown-menu-item:hover;
+}
 
 .ember-power-select-group-name {
   cursor: default;

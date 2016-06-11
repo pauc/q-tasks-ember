@@ -1,6 +1,10 @@
-{{buf-field
-  field="name"
-  autofocus=true
-}}
+<div class="input-group-col">
+  {{buf-field
+    field="name"
+    autofocus=true
+  }}
+</div>
 
-<button type="submit">{{t 'actions.save' thing=(t 'models.project.one')}}</button>
+<button type="submit" class="btn">
+  {{t 'actions.save' thing=(t 'models.project.one')}}
+</button>

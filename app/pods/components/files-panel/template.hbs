@@ -1,5 +1,5 @@
 <div class="files-panel-header">
-  <div class="flex">
+  <div class="flex mb2">
     <div class="flex-auto">
       <div class="as-h2">Files</div>
     </div>
@@ -13,19 +13,24 @@
 </div>
 
 <div class="files-panel-main">
-  <div class="files-list">
+  <div class="attachments">
     {{#each sortedAttachments as |attachment|}}
-      <div class="files-list-item">
-        <a href={{attachment.fileUrl}} target="_blank">
-          {{#if attachment.isImage}}
-            <img src="{{attachment.thumbUrl}}">
-            <br>
-          {{/if}}
-          {{attachment.fileName}}
-        </a>
-        <button type="button" onclick={{action 'deleteAttachment' attachment}}>
+      <div class="attachment">
+        {{!-- <button type="button" onclick={{action 'deleteAttachment' attachment}}>
           {{inline-svg "assets/images/icons/cross.svg"}}
-        </button>
+        </button> --}}
+
+        <a href={{attachment.fileUrl}} target="_blank" class="attachment-link">
+          <div class="attachment-file">
+            {{#if attachment.isImage}}
+              <img src="{{attachment.thumbUrl}}">
+            {{/if}}
+          </div>
+          
+          <div class="attachment-name">
+            {{attachment.fileName}}
+          </div>
+        </a>
       </div>
     {{/each}}
   </div>
