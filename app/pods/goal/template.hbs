@@ -17,12 +17,12 @@
         <button type="button"
           class="btn btn-clear {{if showTaskNames 'active'}}"
           onclick={{action 'toggleShowTaskNames'}}>
-          Mostrar titulos
+          {{capitalize (t 'templates.goal.show_titles')}}
         </button>
       </div>
       <div class="task-top-bar-btn">
         <button type="button" class="btn btn-clear" onclick={{route-action 'deleteGoal'}}>
-          Delete
+          {{capitalize (t 'actions.delete')}}
         </button>
       </div>
       <div class="task-top-bar-btn">
@@ -30,7 +30,7 @@
           type="button"
           onclick={{action 'toggleFilesPanel'}}
           class="btn btn-clear {{if filesPanelIsVisible 'active'}}">
-          Files
+          {{capitalize (t 'models.attachment.other')}}
         </button>
       </div>
     </div>

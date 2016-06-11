@@ -7,5 +7,7 @@
 }}
 
 {{#if cancel}}
-  <button type="button" onclick={{action "cancel"}} class="btn btn-light">Cancel</button>
+  <button type="button" onclick={{action "cancel"}} class="btn btn-light">
+    {{capitalize (t 'actions.cancel')}}
+  </button>
 {{/if}}

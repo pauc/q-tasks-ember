@@ -1,8 +1,16 @@
 import Ember from 'ember';
 
+const { inject } = Ember;
+
 export default Ember.Route.extend({
+  currentUser: inject.service(),
+
   model(params) {
     return this.store.findRecord('task', params.task_id);
+  },
+
+  afterModel(model) {
+    this.set('currentUser.currentTaskId', model.get('id'));
   },
 
   setupController(controller) {

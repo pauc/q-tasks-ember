@@ -1,5 +1,22 @@
-textarea.assignment-description-field {
+textarea.assignment-description-field,
+.comment-form-body.ember-text-area {
   padding: 2px;
   border: 1px dashed #DDD;
   overflow: hidden;
+}
+
+.dependency .done-symbol {
+  margin-right: 6px;
+  border: 2px solid #E5E9EC;
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: middle;
+  background-color: $blue;
+  background-image: url("/assets/images/icons/check.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+  border-color: transparent;
 }

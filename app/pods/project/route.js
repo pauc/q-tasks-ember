@@ -55,5 +55,9 @@ export default Ember.Route.extend({
 
     this.set('controller.newGoal', null);
     this.set('controller.showGoalForm', false);
+  },
+
+  afterModel(model) {
+    this.set('currentUser.currentProjectId', model.get('id'));
   }
 });

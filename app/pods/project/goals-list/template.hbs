@@ -1,14 +1,14 @@
 <div class="small-tasks">
   {{#each model.goals as |goal|}}
     {{#unless goal.isNew}}
-      
+
       {{#link-to 'goal' model.id goal.id class="small-task"}}
 
         <div class="checkbox">
           <input id="{{goal.id}}" type="checkbox" class="checkbox-input">
           <label for="{{goal.id}}" class="checkbox-label"></label>
         </div>
-      
+
         <div class="small-task-title truncate">
           {{goal.name}}
         </div>
@@ -26,6 +26,8 @@
       cancel=(route-action 'cancelCreateGoal' newGoal)
     }}
   {{else}}
-    <button type="button" onclick={{route-action "createGoal"}} class="btn btn-light">+ Añadir tarea</button>
+    <button type="button" onclick={{route-action "createGoal"}} class="btn btn-light">
+      + {{capitalize (t 'templates.goal_list.add_goal')}}
+    </button>
   {{/if}}
 </div>

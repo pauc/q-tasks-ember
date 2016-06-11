@@ -1,5 +1,9 @@
 actions:
+  assign: "assignar"
+  cancel: "cancel·lar"
+  delete: "esborrar"
   save: "desar {thing}"
+  simple_save: "guardar"
 
 front_page:
   welcome_message: "Benvingut a Q-Tasks"
@@ -8,6 +12,9 @@ authentication:
   error: "Ha fallat l'autenticació. Assegurat que el correu i la contrasenya són correctes."
 
 models:
+  attachment:
+    one: "fitxer"
+    other: "fitxers"
   comment:
     one: "comentari"
     other: "comentaris"
@@ -36,12 +43,20 @@ templates:
   comment_form:
     body_placeholder: "Escriu un comentari (pots usar markdown)"
     save: "enviar"
-  new_project:
-      title: "Projecte nou"
   first-goal:
     title: "Crea el primer objectiu del projecte"
   first-project:
     title: "Crea un primer projecte per a l'equip"
+  goal:
+    show_titles: "mostrar títols"
+  goal_list:
+    add_goal: "afegir objectiu"
+  new_project:
+      title: "Projecte nou"
+  task:
+    add_dependency: "afegir dependència"
+    dependencies: "dependències"
+    edit_description: "editar descripció"
 
 dependency_decorator:
   task_position: "Tasca {position}"

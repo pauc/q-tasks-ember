@@ -23,6 +23,10 @@ const DependencyDecorator = Ember.Object.extend({
     }
 
     return text;
+  }),
+
+  done: computed('task.done', function() {
+    return this.get('task.done');
   })
 });
 
@@ -141,6 +145,10 @@ export default Ember.Controller.extend({
 
     const data  = this.get('data'),
           model = this.get('model');
+
+    if (data.get('name') === null) {
+      return;
+    }
 
     if ((data.get('name') || '').trim() !== model.get('name')) {
       this.get('saveTask').perform();

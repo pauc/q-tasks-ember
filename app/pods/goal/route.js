@@ -1,9 +1,17 @@
 import Ember from 'ember';
 import { task } from 'ember-concurrency';
 
+const { inject } = Ember;
+
 export default Ember.Route.extend({
+  currentUser: inject.service(),
+
   model(params) {
     return this.store.findRecord('goal', params.goal_id, { include: 'tasks' });
+  },
+
+  afterModel(model) {
+    this.set('currentUser.currentGoalId', model.get('id'));
   },
 
   setupController(controller, model) {
@@ -32,8 +40,14 @@ export default Ember.Route.extend({
     const goal = this.get('currentModel');
 
     yield goal.destroyRecord();
+    this.set('currentUser.currentGoalId', null);
 
     this.transitionTo('project');
+  }).drop(),
+
+  toggleTaskDone: task(function * (task) {
+    task.toggleProperty('done');
+    yield task.save();
   }).drop(),
 
   actions: {
@@ -66,8 +80,7 @@ export default Ember.Route.extend({
     },
 
     toggleTaskDone(task) {
-      task.toggleProperty('done');
-      task.save();
+      this.get('toggleTaskDone').perform(task);
     },
 
     deleteGoal() {
