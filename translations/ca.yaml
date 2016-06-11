@@ -13,8 +13,8 @@ authentication:
 
 models:
   attachment:
-    one: "fitxer"
-    other: "fitxers"
+    one: "arxiu"
+    other: "arxius"
   comment:
     one: "comentari"
     other: "comentaris"
@@ -43,6 +43,8 @@ templates:
   comment_form:
     body_placeholder: "Escriu un comentari (pots usar markdown)"
     save: "enviar"
+  files_panel:
+    title: "Arxius"
   first-goal:
     title: "Crea el primer objectiu del projecte"
   first-project:
