@@ -1,1 +1,5 @@
-{{link-to "New project" 'new-project'}}
+<div class="after-dropdown-action">
+  {{#link-to 'new-project' class='btn mb1 ml1 btn-light'}}
+    {{capitalize (t 'templates.power_select_create_project.new_project')}}
+  {{/link-to}}
+</div>

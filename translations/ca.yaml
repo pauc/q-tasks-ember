@@ -53,6 +53,8 @@ templates:
     add_goal: "afegir objectiu"
   new_project:
       title: "Projecte nou"
+  power_select_create_project:
+    new_project: "nou projecte"
   task:
     add_dependency: "afegir dependència"
     dependencies: "dependències"
