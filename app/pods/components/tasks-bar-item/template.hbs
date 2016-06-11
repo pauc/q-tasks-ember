@@ -19,7 +19,7 @@
     <label for={{checkboxId}} class="checkbox-label"></label>
   </div>
 
-  <a onclick={{route-action "goToTask" model}}>
+  <a onclick={{route-action "goToTask" model.id}}>
     <div class="assignment-box-worker-name">{{assignedTo}}</div>
 
     {{#if showTaskName}}
