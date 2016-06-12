@@ -45,6 +45,23 @@ export default Ember.Route.extend({
       const newGoal = this.get('controller.newGoal');
 
       this._cancelCreateGoal(newGoal);
+    },
+
+    toggleGoalDone(goal, event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const currentDone = goal.get('done');
+
+      goal.get('tasks').then(function(tasks) {
+        tasks.forEach(function(task) {
+          task.set('done', !currentDone);
+
+          if (task.get('hasDirtyAttributes')) {
+            task.save();
+          }
+        });
+      });
     }
   },
 

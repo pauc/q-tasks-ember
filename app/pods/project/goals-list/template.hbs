@@ -4,8 +4,8 @@
 
       {{#link-to 'goal' model.id goal.id class="small-task"}}
 
-        <div class="checkbox">
-          <input id="{{goal.id}}" type="checkbox" class="checkbox-input">
+        <div class="checkbox" onclick={{route-action 'toggleGoalDone' goal}}>
+          {{input id=goal.id type="checkbox" class="checkbox-input" checked=goal.done}}
           <label for="{{goal.id}}" class="checkbox-label"></label>
         </div>
 
