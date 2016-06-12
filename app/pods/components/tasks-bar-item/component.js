@@ -37,7 +37,7 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    insertBefore() {
+    insertBefore(event) {
       event.stopPropagation();
       event.preventDefault();
 

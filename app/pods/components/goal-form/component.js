@@ -16,7 +16,7 @@ export default Component.extend({
 
   data: formBufferProperty('model', Validations),
 
-  submit() {
+  submit(event) {
     event.preventDefault();
 
     this.set('showErrors', true);
