@@ -13,5 +13,17 @@ export default Model.extend({
   user: belongsTo('user', { inverse: false }),
 
   dependencies: hasMany('task', { inverse: false }),
-  comments:     hasMany('comments', { inverse: 'task' })
+  comments:     hasMany('comments', { inverse: 'task' }),
+
+  reset() {
+    this.setProperties({
+      name: '',
+      descriptionMarkdown: '',
+      position: 1,
+      done: false,
+      user: null
+    });
+
+    return this.save();
+  }
 });

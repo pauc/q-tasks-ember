@@ -22,24 +22,6 @@ export default Ember.Route.extend({
     });
   },
 
-  deleteTaskTask: task(function * (task) {
-    const isLastTask = task.get('goal.tasks.length') === 1;
-
-    if (isLastTask) {
-      yield task.reset();
-    } else {
-      const goal   = task.get('goal');
-      const goalId = goal.get('id');
-
-      yield task.destroyRecord();
-
-      this.set('currentUser.currentTaskId', null);
-
-      this.controllerFor('goal').notifyPropertyChange('model.tasks');
-      this.transitionTo('goal', goalId);
-    }
-  }),
-
   actions: {
     willTransition() {
       if (this.modelFor('goal').get('isDeleted')) {
@@ -76,10 +58,6 @@ export default Ember.Route.extend({
       });
 
       comment.save();
-    },
-
-    deleteTask(task) {
-      this.get('deleteTaskTask').perform(task);
     }
   }
 });

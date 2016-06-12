@@ -117,6 +117,23 @@ export default Ember.Controller.extend({
 
   comments: computed.sort('model.comments.[]', 'commentsSortingProperties'),
 
+  showDeleteButton: computed('model.goal.tasks.[]',
+                            'model.{name.descriptionMarkdown,user,done', function() {
+
+    if (this.get('model.goal.tasks.length') > 1) {
+      return true;
+    }
+
+    const name = this.get('model.name'),
+          desc = this.get('model.descriptionMarkdown'),
+          user = this.get('model.user.id'),
+          done = this.get('model.done');
+
+    if (name || desc || user || done) {
+      return true;
+    }
+  }),
+
   actions: {
     assignUser(user) {
       const buffer = this.get('data');

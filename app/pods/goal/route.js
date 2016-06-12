@@ -15,8 +15,6 @@ export default Ember.Route.extend({
   },
 
   insertTaskAt: task(function * (position) {
-    const controller = this.get('controller');
-
     yield this.store.createRecord('task', {
       position: position,
       goal:     this.get('currentModel')
@@ -38,6 +36,20 @@ export default Ember.Route.extend({
   toggleTaskDone: task(function * (task) {
     task.toggleProperty('done');
     yield task.save();
+  }).drop(),
+
+  deleteTaskTask: task(function * (task) {
+    const isLastTask = task.get('goal.tasks.length') === 1;
+
+    if (isLastTask) {
+      yield task.reset();
+    } else {
+      this.set('currentUser.currentTaskId', null);
+
+      yield task.destroyRecord();
+
+      this.transitionTo('project');
+    }
   }).drop(),
 
   actions: {
@@ -75,6 +87,10 @@ export default Ember.Route.extend({
 
     deleteGoal() {
       this.get('deleteGoalTask').perform();
+    },
+
+    deleteTask(task) {
+      this.get('deleteTaskTask').perform(task);
     }
   }
 });
