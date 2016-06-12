@@ -53,6 +53,16 @@ templates:
     show_titles: "mostrar títols"
   goal_list:
     add_goal: "afegir objectiu"
+  index_public:
+    form_input_placeholder: "subdomini"
+    form_label: "domini de q-tasks"
+    form_submit: "continua"
+  login:
+    login_placeholder: "example@example.com"
+    login_label: "correu electònic"
+    password_placeholder: "contrasenya"
+    password_label: "contrasenya"
+    submit_button_text: "som'hi!!"
   new_project:
       title: "Projecte nou"
   power_select_create_project:

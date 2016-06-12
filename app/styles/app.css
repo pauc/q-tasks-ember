@@ -175,3 +175,12 @@ button {
     display: block;
   }
 }
+
+.team-form {
+  button {
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    height: 50px;
+  }
+}

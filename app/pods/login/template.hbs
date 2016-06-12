@@ -1,19 +1,35 @@
 <div class="login-wrapper self-center">
   {{#unless session.isAuthenticated}}
-    <form onsubmit={{route-action 'authenticate' identification password}}>
+    <form onsubmit={{route-action 'authenticate' identification password}} class="team-form">
       <div class="input-group-col">
         <div class="input-group">
-          {{input id='identification' placeholder='Enter Login' value=identification class="input-group-field"}}
-          <label for="identification" class="input-group-label">Login</label>
+          {{input id='identification'
+            placeholder=(t 'templates.login.login_placeholder')
+            value=identification
+            class="input-group-field"
+            autofocus=true
+          }}
+          <label for="identification" class="input-group-label">
+            {{capitalize (t 'templates.login.login_label')}}
+          </label>
         </div>
 
         <div class="input-group">
-          {{input id='password' placeholder='Enter Password' type='password' value=password class="input-group-field"}}
-          <label for="password" class="input-group-label">Password</label>
+          {{input id='password'
+            placeholder=(capitalize (t 'templates.login.password_placeholder'))
+            type='password'
+            value=password
+            class="input-group-field"
+          }}
+          <label for="password" class="input-group-label">
+            {{capitalize (t 'templates.login.password_label')}}
+          </label>
         </div>
       </div>
-      
-      <button type="submit" class="btn">Let's go do some tasks</button>
+
+      <button type="submit" class="btn">
+        {{capitalize (t 'templates.login.submit_button_text')}}
+      </button>
 
     </form>
     {{#if errorMessage}}

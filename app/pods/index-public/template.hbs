@@ -1,13 +1,31 @@
-<div class="login-wrapper self-center">
-  <form onsubmit={{route-action 'goToTeam' teamSubdomain}}>
+<div class="mx-auto self-center">
+  <h1 class="public-index-app-name mb3 mt0 center">
+    Q—T—A—S—Q—S
+  </h1>
 
-    <div class="input-group-col">
-      <div class="input-group">
-        {{input id="team-subdomain" value=teamSubdomain placeholder="teamdomain" class="input-group-field"}}
-        <label for="team-subdomain" class="input-group-label">Q-Tasks domain</label>
+  <div class="login-wrapper">
+
+    <form onsubmit={{route-action 'goToTeam' teamSubdomain}} class="team-form">
+
+      <div class="input-group-col">
+        <div class="input-group">
+          {{input
+            id="team-subdomain"
+            value=teamSubdomain
+            placeholder=(t 'templates.index_public.form_input_placeholder')
+            class="input-group-field"
+            autofocus=true
+          }}
+          <label for="team-subdomain" class="input-group-label">
+            {{capitalize (t 'templates.index_public.form_label')}}
+          </label>
+        </div>
       </div>
-    </div>
 
-    <button type="submit" class="btn">Continue</button>
-  </form>
+      <button type="submit" class="btn">
+        {{capitalize (t 'templates.index_public.form_submit')}}!
+      </button>
+    </form>
+  </div>
 </div>
+
