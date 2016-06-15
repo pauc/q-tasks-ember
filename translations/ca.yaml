@@ -62,7 +62,7 @@ templates:
     login_label: "correu electònic"
     password_placeholder: "contrasenya"
     password_label: "contrasenya"
-    submit_button_text: "som'hi!!"
+    submit_button_text: "som-hi!!"
   new_project:
       title: "Projecte nou"
   power_select_create_project:
