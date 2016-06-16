@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import { task } from 'ember-concurrency';
+import autosize from 'npm:autosize';
 
 const { Component } = Ember;
 
@@ -15,6 +16,8 @@ export default Component.extend({
   save: task(function * () {
     yield this.get('action')(this.get('body'));
 
-    this.$().find('textarea').val('');
+    const $textArea = this.$().find('textarea').val('');
+
+    autosize.update($textArea[0]);
   }).drop()
 });
