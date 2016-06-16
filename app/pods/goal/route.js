@@ -14,14 +14,33 @@ export default Ember.Route.extend({
     this.set('currentUser.currentGoalId', model.get('id'));
   },
 
+  setupController(controller, model) {
+    this._super(...arguments);
+
+    const tasks = model.get('tasks').toArray().sortBy('position').filter( (task) => {
+      return !task.get('isNew');
+    });
+
+    const tasksProxy = Ember.ArrayProxy.create({
+      content: tasks
+    });
+
+    controller.set('tasks', tasksProxy);
+  },
+
   insertTaskAt: task(function * (position) {
-    yield this.store.createRecord('task', {
+    const newTask = this.store.createRecord('task', {
       position: position,
       goal:     this.get('currentModel')
-    }).save().then( savedTask => {
-      this.refresh();
+    });
+
+    yield newTask.save().then( savedTask => {
       this.transitionTo('task', savedTask.get('id'));
     });
+
+    const index = position - 1;
+
+    this.get('controller.tasks').insertAt(index, newTask);
   }).drop(),
 
   deleteGoalTask: task(function * () {
@@ -48,13 +67,19 @@ export default Ember.Route.extend({
 
       yield task.destroyRecord();
 
+      this.get('controller.tasks').removeObject(task);
+
       this.transitionTo('project');
     }
   }).drop(),
 
   actions: {
     reorderTasks(goal, tasks, movedTask) {
-      this.set('controller.tasks', tasks);
+      const tasksProxy = Ember.ArrayProxy.create({
+        content: tasks
+      });
+
+      this.set('controller.tasks', tasksProxy);
 
       const newPosition = tasks.indexOf(movedTask) + 1;
 

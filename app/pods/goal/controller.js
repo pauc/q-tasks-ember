@@ -12,6 +12,8 @@ export default Ember.Controller.extend({
 
   showTaskNames: false,
 
+  reorderedTasks: null,
+
   uploadFileUrl: computed(function() {
     return `/${this.get('currentTeam.id')}/attachments`;
   }),
@@ -30,12 +32,6 @@ export default Ember.Controller.extend({
 
   saveOnNameChange: observer('data.name', function() {
     this.get('_updateGoalName').perform();
-  }),
-
-  tasks: computed('model.tasks.@each.{isDeleted,isNew,position}', function() {
-    return this.get('model.tasks').toArray().sortBy('position').filter( (task) => {
-      return !task.get('isNew');
-    });
   }),
 
   actions: {
